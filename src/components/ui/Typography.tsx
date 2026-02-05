@@ -164,3 +164,42 @@ export function GoldText({ children, className }: GoldTextProps) {
     </span>
   );
 }
+
+// ═══════════════════════════════════════════════════════════════════════
+// UNIFIED TYPOGRAPHY COMPONENT
+// ═══════════════════════════════════════════════════════════════════════
+
+interface TypographyProps {
+  children: ReactNode;
+  variant?: 'display' | 'h1' | 'h2' | 'h3' | 'h4' | 'body' | 'label' | 'small';
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+const variantStyles: Record<string, { tag: keyof JSX.IntrinsicElements; className: string }> = {
+  display: { tag: 'h1', className: 'text-4xl md:text-5xl lg:text-6xl font-light tracking-tight' },
+  h1: { tag: 'h1', className: 'text-3xl md:text-4xl lg:text-5xl font-light tracking-tight' },
+  h2: { tag: 'h2', className: 'text-2xl md:text-3xl lg:text-4xl font-light tracking-tight' },
+  h3: { tag: 'h3', className: 'text-xl md:text-2xl font-medium' },
+  h4: { tag: 'h4', className: 'text-lg md:text-xl font-medium' },
+  body: { tag: 'p', className: 'text-base leading-relaxed' },
+  label: { tag: 'span', className: 'text-sm uppercase tracking-widest font-medium' },
+  small: { tag: 'span', className: 'text-sm' },
+};
+
+export function Typography({ children, variant = 'body', className, style }: TypographyProps) {
+  const { tag: Tag, className: variantClass } = variantStyles[variant];
+  const isLabel = variant === 'label';
+  
+  return (
+    <Tag
+      className={cn(variantClass, className)}
+      style={{ 
+        color: isLabel ? COLORS.gold : COLORS.cream,
+        ...style,
+      }}
+    >
+      {children}
+    </Tag>
+  );
+}

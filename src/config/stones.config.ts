@@ -48,6 +48,7 @@ export interface Stone {
   applications: string[];
   priceCategory: "Premium" | "Standard" | "Contact for rates";
   inStock: boolean;
+  fromOwnQuarry?: boolean; // true if from A B Minerals' own quarry
   
   // SEO
   metaTitle: string;
@@ -93,6 +94,7 @@ export const stones: Stone[] = [
     applications: ["Building Facades", "Flooring", "Interior Cladding", "Countertops"],
     priceCategory: "Premium",
     inStock: true,
+    fromOwnQuarry: true, // Our exclusive quarry in Odisha
     
     metaTitle: "Lavender Blue Granite | A B Minerals",
     metaDescription: "Premium Lavender Blue granite slabs from A B Minerals. Quarry-owned, factory-finished. Perfect for facades, flooring, and luxury interiors. Pan-India delivery.",

@@ -29,6 +29,7 @@ export const siteConfig = {
   navigation: {
     main: [
       { name: "Stones", href: "/stones" },
+      { name: "Quarry", href: "/quarry" },
       { name: "Capabilities", href: "/capabilities" },
       { name: "Projects", href: "/projects" },
       { name: "About", href: "/about" },
@@ -43,6 +44,7 @@ export const siteConfig = {
       ],
       company: [
         { name: "About Us", href: "/about" },
+        { name: "Our Quarry", href: "/quarry" },
         { name: "Capabilities", href: "/capabilities" },
         { name: "Projects", href: "/projects" },
         { name: "Contact", href: "/contact" },
