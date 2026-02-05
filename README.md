@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# A B Minerals Website
 
-## Getting Started
+Premium luxury website for A B Minerals - quarry-owned, factory-finished granite slabs.
 
-First, run the development server:
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+ab-minerals/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── layout.tsx          # Root layout with fonts
+│   │   ├── page.tsx            # Homepage
+│   │   └── globals.css         # Global styles
+│   │
+│   ├── components/
+│   │   ├── ui/                 # Base UI components
+│   │   └── layout/             # Layout components
+│   │
+│   ├── config/                 # ⚙️ Configuration files
+│   │   ├── company.config.ts   # Company info, contacts
+│   │   ├── stones.config.ts    # Stone catalog
+│   │   ├── whatsapp.config.ts  # WhatsApp routing
+│   │   └── site.config.ts      # Site settings
+│   │
+│   └── lib/                    # Utilities
+│
+├── public/                     # Static assets
+│   ├── logo/                   # Company logo
+│   ├── stones/                 # Stone images
+│   ├── team/                   # Team photos
+│   └── projects/               # Project images
+│
+├── PLACEHOLDERS.md             # 📝 Content editing guide
+└── README.md                   # This file
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚙️ Configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All content is managed through config files in `src/config/`.
 
-## Deploy on Vercel
+See [PLACEHOLDERS.md](./PLACEHOLDERS.md) for complete content editing guide.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tech Stack
+
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Framer Motion** - Animations
+- **Three.js** - 3D slab viewer (coming)
+
+---
+
+## 🎨 Design System
+
+### Colors
+- **Charcoal:** `#0A0A0A` (primary background)
+- **Gold:** `#C9A962` (accent)
+- **Cream:** `#F5F5F0` (text)
+
+### Typography
+- **Headlines:** Playfair Display (serif)
+- **Body:** Inter (sans-serif)
+
+---
+
+## 🚢 Deployment
+
+### Cloudflare Pages (Recommended)
+
+1. Push code to GitHub
+2. Connect repo to Cloudflare Pages
+3. Build command: `npm run build`
+4. Output directory: `.next`
+5. Add custom domain `abminerals.com`
+
+---
+
+## 📝 Content Editing
+
+See [PLACEHOLDERS.md](./PLACEHOLDERS.md) for all content that needs updating.
+
+---
+
+## 📄 License
+
+Private - A B Minerals © 2024

@@ -1,26 +1,221 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ═══════════════════════════════════════════════════════════════════════
+   A B MINERALS - TAILWIND V4 THEME
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Colors - Charcoal */
+  --color-charcoal: #0A0A0A;
+  --color-charcoal-light: #141414;
+  --color-charcoal-medium: #1A1A1A;
+  --color-charcoal-dark: #050505;
+  
+  /* Colors - Gold */
+  --color-gold: #C9A962;
+  --color-gold-light: #D4BC7E;
+  --color-gold-dark: #8B7355;
+  --color-gold-muted: #A08B5B;
+  
+  /* Colors - Cream */
+  --color-cream: #F5F5F0;
+  --color-cream-dark: #E8E8E0;
+  --color-cream-muted: #A0A0A0;
+  
+  /* Colors - Stone accents */
+  --color-stone-blue: #6B7B8C;
+  --color-stone-lavender: #8B7B9C;
+  --color-stone-brown: #6B5B4B;
+  --color-stone-white: #E0E0E0;
+  
+  /* Fonts */
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
+  
+  /* Font sizes */
+  --text-display-xl: 5rem;
+  --text-display-lg: 4rem;
+  --text-display-md: 3rem;
+  --text-display-sm: 2.25rem;
+  --text-body-lg: 1.25rem;
+  --text-body-md: 1.125rem;
+  --text-body-sm: 1rem;
+  --text-body-xs: 0.875rem;
+  
+  /* Custom easing */
+  --ease-luxury: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ═══════════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════════════ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-charcoal-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Link styles */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CUSTOM UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 169, 98, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 245, 240, 0.1);
+}
+
+/* Gold border glow */
+.border-glow {
+  box-shadow: 0 0 20px rgba(201, 169, 98, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ANIMATION CLASSES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Image zoom on hover */
+.image-zoom {
+  overflow: hidden;
+}
+
+.image-zoom img {
+  transition: transform 0.6s ease;
+}
+
+.image-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THREE.JS CANVAS STYLES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.canvas-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-container canvas {
+  display: block;
+}
+
+/* Loading state for 3D */
+.canvas-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-charcoal);
+}
+
+.canvas-loading::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--color-gold-dark);
+  border-top-color: var(--color-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -1,65 +1,677 @@
+"use client";
+
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, MapPin, MessageCircle, Sparkles, Shield, Truck, Factory } from "lucide-react";
+import { Container, Section } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { Heading, Text, SectionHeader, GoldText } from "@/components/ui/Typography";
+import { HeroSlab } from "@/components/3d/HeroSlab";
+import { AnimatedCounter, RevealOnScroll, AnimatedWords } from "@/components/ui/AnimatedElements";
+import { stones } from "@/config/stones.config";
+import { companyInfo, contactInfo, capabilities, benchmarkProjects, projectDisclaimer } from "@/config/company.config";
+import { generateWhatsAppUrl, messageTemplates } from "@/config/whatsapp.config";
+import Link from "next/link";
 import Image from "next/image";
 
+// ═══════════════════════════════════════════════════════════════════════
+// ANIMATION VARIANTS
+// ═══════════════════════════════════════════════════════════════════════
+
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6 }
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+// ═══════════════════════════════════════════════════════════════════════
+// HOMEPAGE
+// ═══════════════════════════════════════════════════════════════════════
+
 export default function Home() {
+  const handleRequestQuote = () => {
+    const url = generateWhatsAppUrl(messageTemplates.general);
+    window.open(url, "_blank");
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      {/* ═══════════════════════════════════════════════════════════════
+          HERO SECTION
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal-light to-charcoal" />
+        
+        {/* Gold accent glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px]" />
+        
+        <Container className="relative z-10 pt-32 pb-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Hero Content */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+              className="text-center lg:text-left"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+              {/* Eyebrow */}
+              <motion.div variants={fadeInUp} className="mb-6">
+                <span className="inline-flex items-center gap-2 text-sm uppercase tracking-widest" style={{ color: '#C9A962' }}>
+                  <MapPin className="w-4 h-4" />
+                  {contactInfo.address.short}
+                </span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.div variants={fadeInUp}>
+                <h1 className="font-serif font-medium tracking-tight text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6">
+                  <span style={{ color: '#C9A962' }}>Quarry-Owned.</span>
+                  <br />
+                  <span style={{ color: '#F5F5F0' }}>Factory-Finished.</span>
+                  <br />
+                  <span style={{ color: 'rgba(245, 245, 240, 0.9)' }}>Premium Granite Slabs.</span>
+                </h1>
+              </motion.div>
+
+              {/* Subtext */}
+              <motion.div variants={fadeInUp}>
+                <p className="text-lg mb-8 max-w-xl mx-auto lg:mx-0" style={{ color: '#A0A0A0' }}>
+                  Quarry-owned + polished to perfection, delivered to project sites across India.
+                  <br />
+                  Pan-India dispatch • Export-ready • Quote in minutes on WhatsApp
+                </p>
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button
+                  variant="gold"
+                  size="lg"
+                  onClick={handleRequestQuote}
+                  leftIcon={<MessageCircle className="w-5 h-5" />}
+                >
+                  Request Quote
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  rightIcon={<ArrowRight className="w-5 h-5" />}
+                  onClick={() => document.getElementById("stones")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  View Stones
+                </Button>
+              </motion.div>
+            </motion.div>
+
+            {/* Hero 3D Slab Viewer - Floating in void */}
+            <div className="relative w-full h-full min-h-[400px] lg:min-h-[500px]">
+              <HeroSlab 
+                albedoUrl="/stones/lavender-blue/albedo.png"
+                normalUrl="/stones/lavender-blue/normal.png"
+                roughnessUrl="/stones/lavender-blue/roughness.png"
+              />
+            </div>
+          </div>
+        </Container>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <div 
+            className="w-6 h-10 rounded-full flex justify-center pt-2"
+            style={{ border: '2px solid rgba(201, 169, 98, 0.5)' }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: '#C9A962' }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          ANIMATED STATS SECTION
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#0D0D0D' }}>
+        {/* Background gradient accent */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{ 
+            background: 'radial-gradient(ellipse at center, rgba(201, 169, 98, 0.15) 0%, transparent 70%)' 
+          }}
+        />
+        
+        <Container>
+          <RevealOnScroll>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+              {/* Stat 1: Years */}
+              <div className="text-center group">
+                <div className="relative inline-block">
+                  <span 
+                    className="text-5xl md:text-6xl lg:text-7xl font-display font-light"
+                    style={{ color: '#C9A962' }}
+                  >
+                    <AnimatedCounter value={25} duration={2} />
+                  </span>
+                  <span 
+                    className="text-2xl md:text-3xl font-display"
+                    style={{ color: '#C9A962' }}
+                  >+</span>
+                </div>
+                <p 
+                  className="mt-3 text-sm md:text-base tracking-wider uppercase"
+                  style={{ color: 'rgba(245, 245, 240, 0.7)' }}
+                >
+                  Years of Excellence
+                </p>
+                <div 
+                  className="mt-4 w-12 h-px mx-auto transition-all duration-500 group-hover:w-20"
+                  style={{ backgroundColor: 'rgba(201, 169, 98, 0.3)' }}
+                />
+              </div>
+
+              {/* Stat 2: Projects */}
+              <div className="text-center group">
+                <div className="relative inline-block">
+                  <span 
+                    className="text-5xl md:text-6xl lg:text-7xl font-display font-light"
+                    style={{ color: '#C9A962' }}
+                  >
+                    <AnimatedCounter value={500} duration={2.5} />
+                  </span>
+                  <span 
+                    className="text-2xl md:text-3xl font-display"
+                    style={{ color: '#C9A962' }}
+                  >+</span>
+                </div>
+                <p 
+                  className="mt-3 text-sm md:text-base tracking-wider uppercase"
+                  style={{ color: 'rgba(245, 245, 240, 0.7)' }}
+                >
+                  Projects Delivered
+                </p>
+                <div 
+                  className="mt-4 w-12 h-px mx-auto transition-all duration-500 group-hover:w-20"
+                  style={{ backgroundColor: 'rgba(201, 169, 98, 0.3)' }}
+                />
+              </div>
+
+              {/* Stat 3: Capacity */}
+              <div className="text-center group">
+                <div className="relative inline-block">
+                  <span 
+                    className="text-5xl md:text-6xl lg:text-7xl font-display font-light"
+                    style={{ color: '#C9A962' }}
+                  >
+                    <AnimatedCounter value={250} duration={2} suffix="K" />
+                  </span>
+                  <span 
+                    className="text-2xl md:text-3xl font-display"
+                    style={{ color: '#C9A962' }}
+                  >+</span>
+                </div>
+                <p 
+                  className="mt-3 text-sm md:text-base tracking-wider uppercase"
+                  style={{ color: 'rgba(245, 245, 240, 0.7)' }}
+                >
+                  Sqft Monthly
+                </p>
+                <div 
+                  className="mt-4 w-12 h-px mx-auto transition-all duration-500 group-hover:w-20"
+                  style={{ backgroundColor: 'rgba(201, 169, 98, 0.3)' }}
+                />
+              </div>
+
+              {/* Stat 4: Quarries */}
+              <div className="text-center group">
+                <div className="relative inline-block">
+                  <span 
+                    className="text-5xl md:text-6xl lg:text-7xl font-display font-light"
+                    style={{ color: '#C9A962' }}
+                  >
+                    <AnimatedCounter value={3} duration={1.5} />
+                  </span>
+                </div>
+                <p 
+                  className="mt-3 text-sm md:text-base tracking-wider uppercase"
+                  style={{ color: 'rgba(245, 245, 240, 0.7)' }}
+                >
+                  Owned Quarries
+                </p>
+                <div 
+                  className="mt-4 w-12 h-px mx-auto transition-all duration-500 group-hover:w-20"
+                  style={{ backgroundColor: 'rgba(201, 169, 98, 0.3)' }}
+                />
+              </div>
+            </div>
+          </RevealOnScroll>
+        </Container>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          STONES COLLECTION
+          ═══════════════════════════════════════════════════════════════ */}
+      <Section id="stones" padding="lg" background="charcoal-light">
+        <Container>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <motion.div variants={fadeInUp}>
+              <SectionHeader
+                eyebrow="Our Collection"
+                title="Stones Collection"
+                description="Quarry-Owned. Factory-Finished. Four signature granites for landmark projects."
+              />
+            </motion.div>
+
+            {/* Stones Grid */}
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
+              {stones.map((stone) => (
+                <motion.div key={stone.id} variants={fadeInUp}>
+                  <Link href={`/stones/${stone.slug}`} className="group block">
+                    <div 
+                      className="relative aspect-[3/4] overflow-hidden rounded-lg transition-all duration-500 hover-lift"
+                      style={{ 
+                        backgroundColor: '#0A0A0A', 
+                        border: '1px solid rgba(245, 245, 240, 0.05)' 
+                      }}
+                    >
+                      {/* Stone Image */}
+                      <Image
+                        src={stone.images.thumbnail}
+                        alt={stone.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
+                      
+                      {/* Gradient overlay */}
+                      <div 
+                        className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                      />
+                      
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 
+                          className="font-serif text-xl transition-colors"
+                          style={{ color: '#F5F5F0' }}
+                        >
+                          {stone.name}
+                        </h3>
+                        <p 
+                          className="text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{ color: '#A0A0A0' }}
+                        >
+                          {stone.shortDescription}
+                        </p>
+                        <div 
+                          className="flex items-center gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{ color: '#C9A962' }}
+                        >
+                          <span className="text-sm">View Details</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* View All CTA */}
+            <motion.div variants={fadeInUp} className="text-center mt-12">
+              <Link href="/stones">
+                <Button variant="outline" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  View All Stones
+                </Button>
+              </Link>
+            </motion.div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          CAPABILITIES SECTION
+          ═══════════════════════════════════════════════════════════════ */}
+      <Section padding="lg" background="charcoal">
+        <Container>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <SectionHeader
+                eyebrow="Quarry to Factory"
+                title="Quarry-to-Finish Excellence & Scale"
+                description={`${companyInfo.stats.monthlyCapacity} ${companyInfo.stats.capacityUnit} monthly capacity with complete vertical integration.`}
+              />
+            </motion.div>
+
+            {/* Capabilities Grid */}
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {capabilities.map((capability) => (
+                <motion.div
+                  key={capability.id}
+                  variants={fadeInUp}
+                  className="p-6 rounded-lg transition-all duration-300 group"
+                  style={{ 
+                    backgroundColor: '#141414', 
+                    border: '1px solid rgba(245, 245, 240, 0.05)' 
+                  }}
+                >
+                  <div 
+                    className="w-12 h-12 rounded-full flex items-center justify-center mb-4 transition-colors"
+                    style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)' }}
+                  >
+                    <span style={{ color: '#C9A962', fontSize: '1.25rem' }}>✦</span>
+                  </div>
+                  <h3 
+                    className="font-serif text-lg mb-2"
+                    style={{ color: '#F5F5F0' }}
+                  >
+                    {capability.title}
+                  </h3>
+                  <p 
+                    className="text-sm"
+                    style={{ color: '#A0A0A0' }}
+                  >
+                    {capability.description}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          WHY CHOOSE US - TRUST SIGNALS
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-28" style={{ backgroundColor: '#0D0D0D' }}>
+        <Container>
+          <RevealOnScroll>
+            <div className="text-center mb-16">
+              <p 
+                className="text-sm tracking-widest uppercase mb-4"
+                style={{ color: '#C9A962' }}
+              >
+                Why Choose Us
+              </p>
+              <h2 
+                className="font-display text-4xl md:text-5xl font-light mb-4"
+                style={{ color: '#F5F5F0' }}
+              >
+                <AnimatedWords text="The A B Minerals Advantage" />
+              </h2>
+              <p 
+                className="max-w-2xl mx-auto text-lg"
+                style={{ color: 'rgba(245, 245, 240, 0.6)' }}
+              >
+                Vertically integrated excellence from quarry to your project site.
+              </p>
+            </div>
+          </RevealOnScroll>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: <Sparkles className="w-6 h-6" />,
+                title: "Quarry Ownership",
+                description: "Direct ownership of 3 quarries ensures consistent supply and competitive pricing."
+              },
+              {
+                icon: <Factory className="w-6 h-6" />,
+                title: "In-House Processing",
+                description: "State-of-the-art factory with 250,000+ sqft monthly capacity for any scale."
+              },
+              {
+                icon: <Shield className="w-6 h-6" />,
+                title: "Quality Assurance",
+                description: "Rigorous quality control at every stage from extraction to final finish."
+              },
+              {
+                icon: <Truck className="w-6 h-6" />,
+                title: "Pan-India Delivery",
+                description: "Efficient logistics network ensuring timely delivery across India."
+              }
+            ].map((item, index) => (
+              <RevealOnScroll key={index} delay={index * 0.1}>
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="p-8 rounded-2xl h-full transition-all duration-300"
+                  style={{ 
+                    backgroundColor: '#141414', 
+                    border: '1px solid rgba(201, 169, 98, 0.15)',
+                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  <div 
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                    style={{ 
+                      background: 'linear-gradient(135deg, rgba(201, 169, 98, 0.2) 0%, rgba(201, 169, 98, 0.1) 100%)',
+                      border: '1px solid rgba(201, 169, 98, 0.3)'
+                    }}
+                  >
+                    <span style={{ color: '#C9A962' }}>{item.icon}</span>
+                  </div>
+                  <h3 
+                    className="font-display text-xl mb-3"
+                    style={{ color: '#F5F5F0' }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p 
+                    className="text-sm leading-relaxed"
+                    style={{ color: 'rgba(245, 245, 240, 0.6)' }}
+                  >
+                    {item.description}
+                  </p>
+                </motion.div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          BENCHMARKS / PROJECTS SECTION
+          ═══════════════════════════════════════════════════════════════ */}
+      <Section padding="lg" background="charcoal-light">
+        <Container>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <SectionHeader
+                eyebrow="Track Record"
+                title="Benchmark Projects"
+                description="Used in projects such as airports and metro rail systems across India."
+              />
+            </motion.div>
+
+            {/* Projects Grid */}
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              {benchmarkProjects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  variants={fadeInUp}
+                  className="text-center"
+                >
+                  <div 
+                    className="aspect-video mb-4 rounded-lg flex items-center justify-center"
+                    style={{ 
+                      backgroundColor: '#0A0A0A', 
+                      border: '1px solid rgba(245, 245, 240, 0.05)' 
+                    }}
+                  >
+                    {/* Project image placeholder */}
+                    <div className="text-4xl" style={{ color: 'rgba(201, 169, 98, 0.3)' }}>🏛️</div>
+                  </div>
+                  <h3 
+                    className="font-serif text-xl mb-1"
+                    style={{ color: '#F5F5F0' }}
+                  >
+                    {project.name}
+                  </h3>
+                  <p className="text-sm" style={{ color: '#C9A962' }}>{project.type}</p>
+                  <span 
+                    className="inline-block mt-2 px-3 py-1 text-xs rounded-full"
+                    style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}
+                  >
+                    {project.status}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Disclaimer */}
+            <motion.p 
+              variants={fadeInUp} 
+              className="text-center text-xs mt-8"
+              style={{ color: '#A0A0A0' }}
+            >
+              {projectDisclaimer}
+            </motion.p>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          CTA SECTION - Premium Animated
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="relative py-24 overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
+        {/* Background elements */}
+        <div 
+          className="absolute inset-0"
+          style={{ 
+            background: 'radial-gradient(ellipse at bottom, rgba(201, 169, 98, 0.1) 0%, transparent 60%)' 
+          }}
+        />
+        <div 
+          className="absolute top-0 left-0 w-full h-px"
+          style={{ 
+            background: 'linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.3), transparent)' 
+          }}
+        />
+        
+        <Container size="md">
+          <RevealOnScroll>
+            <div className="text-center relative z-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <p 
+                  className="text-sm tracking-widest uppercase mb-6"
+                  style={{ color: '#C9A962' }}
+                >
+                  Get Started Today
+                </p>
+                <h2 
+                  className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-6 leading-tight"
+                  style={{ color: '#F5F5F0' }}
+                >
+                  <AnimatedWords text="Ready to source premium granite?" />
+                </h2>
+                <p 
+                  className="text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed"
+                  style={{ color: 'rgba(245, 245, 240, 0.7)' }}
+                >
+                  Get rates, availability, and samples. Most inquiries answered within hours on WhatsApp.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <Button
+                    variant="gold"
+                    size="lg"
+                    onClick={handleRequestQuote}
+                    leftIcon={<MessageCircle className="w-5 h-5" />}
+                  >
+                    Request Quote on WhatsApp
+                  </Button>
+                </motion.div>
+                <Link href="/contact">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                    <Button variant="outline" size="lg">
+                      Contact Us
+                    </Button>
+                  </motion.div>
+                </Link>
+              </motion.div>
+
+              {/* Trust indicators */}
+              <motion.div 
+                className="mt-12 flex flex-wrap justify-center gap-6 md:gap-10"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C9A962' }} />
+                  <span className="text-sm" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>Quick Response</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C9A962' }} />
+                  <span className="text-sm" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>Sample Kits Available</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#C9A962' }} />
+                  <span className="text-sm" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>Pan-India Delivery</span>
+                </div>
+              </motion.div>
+            </div>
+          </RevealOnScroll>
+        </Container>
+      </section>
+    </>
   );
 }

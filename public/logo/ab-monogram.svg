@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4BC7E"/>
+      <stop offset="50%" style="stop-color:#C9A962"/>
+      <stop offset="100%" style="stop-color:#8B7355"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer diamond -->
+  <rect x="15" y="15" width="70" height="70" rx="2" fill="none" stroke="url(#goldGradient)" stroke-width="2" transform="rotate(45 50 50)"/>
+  
+  <!-- Inner diamond -->
+  <rect x="22" y="22" width="56" height="56" rx="1" fill="none" stroke="url(#goldGradient)" stroke-width="1" transform="rotate(45 50 50)"/>
+  
+  <!-- AB Text -->
+  <text x="50" y="58" font-family="Georgia, serif" font-size="24" font-weight="500" fill="url(#goldGradient)" text-anchor="middle">AB</text>
+</svg>
