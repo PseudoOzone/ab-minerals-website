@@ -111,7 +111,7 @@ export default function CapabilitiesPage() {
               <div className="text-4xl md:text-5xl font-serif mb-2" style={{ color: '#C9A962' }}>
                 {companyInfo.stats.quarriesOwned}
               </div>
-              <Text muted>Owned Quarries</Text>
+              <Text muted>Own Quarry</Text>
             </motion.div>
             <motion.div variants={fadeInUp} className="text-center">
               <div className="text-4xl md:text-5xl font-serif mb-2" style={{ color: '#C9A962' }}>
@@ -201,7 +201,7 @@ export default function CapabilitiesPage() {
             >
               {/* Process Steps */}
               {[
-                { step: "01", title: "Quarry Extraction", desc: "Raw blocks extracted from our owned quarries in Odisha" },
+                { step: "01", title: "Quarry Extraction", desc: "Raw Lavender Blue blocks from our own 100-acre quarry in Odisha" },
                 { step: "02", title: "Block Selection", desc: "Each block inspected for color consistency and structural integrity" },
                 { step: "03", title: "Cutting & Sizing", desc: "Precision gang-saw cutting into slabs of required thickness" },
                 { step: "04", title: "Surface Finishing", desc: "Polish, flame, leather or custom finish applied" },

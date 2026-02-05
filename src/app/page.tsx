@@ -249,14 +249,14 @@ export default function Home() {
                     className="text-5xl md:text-6xl lg:text-7xl font-display font-light"
                     style={{ color: '#C9A962' }}
                   >
-                    <AnimatedCounter value={3} duration={1.5} />
+                    <AnimatedCounter value={1} duration={1.5} />
                   </span>
                 </div>
                 <p 
                   className="mt-3 text-sm md:text-base tracking-wider uppercase"
                   style={{ color: 'rgba(245, 245, 240, 0.7)' }}
                 >
-                  Owned Quarries
+                  Own Quarry
                 </p>
                 <div 
                   className="mt-4 w-12 h-px mx-auto transition-all duration-500 group-hover:w-20"
@@ -447,8 +447,8 @@ export default function Home() {
             {[
               {
                 icon: <Sparkles className="w-6 h-6" />,
-                title: "Quarry Ownership",
-                description: "Direct ownership of 3 quarries ensures consistent supply and competitive pricing."
+                title: "Own Quarry",
+                description: "100-acre Lavender Blue quarry + factory processing for variety stones."
               },
               {
                 icon: <Factory className="w-6 h-6" />,

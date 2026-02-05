@@ -66,8 +66,8 @@ export default function StonesPage() {
             </motion.div>
             <motion.div variants={fadeInUp}>
               <Text size="lg" muted className="max-w-2xl">
-                Quarry-owned, factory-finished. Explore our signature collection of 
-                premium granite slabs, each with unique patterns and exceptional quality.
+                Our signature Lavender Blue from our own quarry, plus a variety of 
+                premium granites factory-finished to perfection.
               </Text>
             </motion.div>
           </motion.div>

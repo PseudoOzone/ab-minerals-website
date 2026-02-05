@@ -49,9 +49,9 @@ const quarryMedia = [
 
 // Stats data
 const stats = [
-  { value: '1', label: 'Exclusive Quarry', suffix: '' },
+  { value: '1', label: 'Own Quarry', suffix: '' },
   { value: '30', label: 'Years Operating', suffix: '+' },
-  { value: '50', label: 'Acres Reserve', suffix: '+' },
+  { value: '100', label: 'Acres Reserve', suffix: '' },
   { value: '100', label: 'Monthly Output (Blocks)', suffix: '+' },
 ];
 
@@ -127,6 +127,9 @@ export default function QuarryPage() {
             loop
             playsInline
             className="h-full w-full object-cover"
+            style={{
+              filter: 'contrast(1.1) saturate(1.15) brightness(1.05)',
+            }}
           >
             <source src="/quarry/quarry-1.mp4" type="video/mp4" />
           </video>
@@ -178,8 +181,8 @@ export default function QuarryPage() {
                 className="text-xl mb-8 max-w-xl"
                 style={{ color: 'rgba(245, 245, 240, 0.8)' }}
               >
-                The only quarry we own. The only stone we master. 
-                Premium Lavender Blue granite from the mineral-rich lands of Odisha.
+                Our exclusive 100-acre Lavender Blue quarry in Odisha. 
+                We also process and supply a variety of premium granites from our factory.
               </Typography>
 
               <div className="flex flex-wrap gap-4">
@@ -399,7 +402,7 @@ export default function QuarryPage() {
                   },
                   {
                     title: 'Reliable Supply',
-                    description: 'Guaranteed stock availability with 50+ acres of reserves.',
+                    description: 'Guaranteed stock availability with 100 acres of reserves.',
                   },
                   {
                     title: 'Customization',
@@ -446,6 +449,9 @@ export default function QuarryPage() {
                 loop
                 playsInline
                 className="h-full w-full object-cover"
+                style={{
+                  filter: 'contrast(1.1) saturate(1.15) brightness(1.05)',
+                }}
               >
                 <source src="/quarry/quarry-2.mp4" type="video/mp4" />
               </video>

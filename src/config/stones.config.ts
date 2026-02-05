@@ -66,7 +66,7 @@ export const stones: Stone[] = [
     name: "Lavender Blue",
     
     tagline: "Elegant waves of blue and grey",
-    description: "Lavender Blue granite features a mesmerizing blend of lavender-grey tones with flowing wave patterns. Quarried from our own reserves in Odisha, this premium stone brings sophistication to any architectural project.",
+    description: "Lavender Blue granite features a mesmerizing blend of lavender-grey tones with flowing wave patterns. Quarried from our own 100-acre reserve in Odisha, this is our signature stone — the only granite we extract ourselves.",
     shortDescription: "Premium blue-grey granite with flowing wave patterns",
     
     color: "#7B8FA0",
@@ -106,7 +106,7 @@ export const stones: Stone[] = [
     
     // ← PLACEHOLDER: Update these descriptions
     tagline: "Deep lavender-blue with dramatic movement",
-    description: "SK Blue granite showcases stunning grey-white tones with dramatic swirling patterns. This statement stone transforms spaces with its bold, contemporary character while maintaining timeless elegance.",
+    description: "SK Blue granite showcases stunning grey-white tones with dramatic swirling patterns. Factory-processed at our Berhampur facility, this statement stone transforms spaces with its bold, contemporary character.",
     shortDescription: "Grey-white granite with dramatic swirling patterns",
     
     color: "#9EAAB8",
@@ -136,7 +136,7 @@ export const stones: Stone[] = [
     inStock: true,
     
     metaTitle: "SK Blue Granite | A B Minerals",
-    metaDescription: "Premium SK Blue granite slabs from A B Minerals. Bold lavender-blue tones with dramatic patterns. Quarry-owned, factory-finished. Pan-India delivery.",
+    metaDescription: "Premium SK Blue granite slabs from A B Minerals. Bold lavender-blue tones with dramatic patterns. Factory-finished and quality assured. Pan-India delivery.",
   },
   {
     id: "ikon-brown",
@@ -145,7 +145,7 @@ export const stones: Stone[] = [
     
     // ← PLACEHOLDER: Update these descriptions
     tagline: "Rich brown with linear elegance",
-    description: "Ikon Brown granite presents a sophisticated palette of deep warm brown tones with distinctive linear grain patterns. Its earthy elegance brings warmth and character to both traditional and contemporary designs.",
+    description: "Ikon Brown granite presents a sophisticated palette of deep warm brown tones with distinctive linear grain patterns. Factory-processed at our Berhampur facility, its earthy elegance brings warmth to both traditional and contemporary designs.",
     shortDescription: "Warm brown granite with distinctive linear patterns",
     
     color: "#5C4A3D",
@@ -175,7 +175,7 @@ export const stones: Stone[] = [
     inStock: true,
     
     metaTitle: "Ikon Brown Granite | A B Minerals",
-    metaDescription: "Premium Ikon Brown granite slabs from A B Minerals. Rich brown tones with linear patterns. Quarry-owned, factory-finished. Pan-India delivery.",
+    metaDescription: "Premium Ikon Brown granite slabs from A B Minerals. Rich brown tones with linear patterns. Factory-finished and quality assured. Pan-India delivery.",
   },
   {
     id: "star-white",
@@ -183,7 +183,7 @@ export const stones: Stone[] = [
     name: "Star White",
     
     tagline: "Pristine white with garnet stars",
-    description: "Star White granite features a stunning white-grey base adorned with distinctive garnet crystal inclusions that sparkle like stars. This unique stone creates bright, airy spaces with natural visual interest.",
+    description: "Star White granite features a stunning white-grey base adorned with distinctive garnet crystal inclusions that sparkle like stars. Factory-processed at our Berhampur facility, this unique stone creates bright, airy spaces.",
     shortDescription: "White-grey granite with sparkling garnet inclusions",
     
     color: "#D8D8D8",
@@ -213,7 +213,7 @@ export const stones: Stone[] = [
     inStock: true,
     
     metaTitle: "Star White Granite | A B Minerals",
-    metaDescription: "Premium Star White granite slabs from A B Minerals. Unique white granite with garnet inclusions. Quarry-owned, factory-finished. Pan-India delivery.",
+    metaDescription: "Premium Star White granite slabs from A B Minerals. Unique white granite with garnet inclusions. Factory-finished and quality assured. Pan-India delivery.",
   },
 ];
 

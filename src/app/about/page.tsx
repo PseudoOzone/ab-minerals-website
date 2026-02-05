@@ -63,8 +63,10 @@ export default function AboutPage() {
             </motion.div>
             <motion.div variants={fadeInUp}>
               <Text size="lg" muted className="max-w-2xl">
-                {companyInfo.tagline}. From our own quarries in Odisha to landmark 
-                projects across India, we deliver premium granite with unmatched quality control.
+                {companyInfo.tagline}. From our exclusive 100-acre Lavender Blue quarry 
+                in Odisha to landmark projects across India, we deliver premium granite 
+                with unmatched quality control. Our factory processes a variety of stones 
+                to meet all your architectural needs.
               </Text>
             </motion.div>
           </motion.div>
@@ -113,7 +115,7 @@ export default function AboutPage() {
                 <div className="text-5xl md:text-6xl font-display font-light mb-3" style={{ color: '#C9A962' }}>
                   <AnimatedCounter value={companyInfo.stats.quarriesOwned} duration={1.5} />
                 </div>
-                <Text muted>Owned Quarries</Text>
+                <Text muted>Own Quarry (Lavender Blue)</Text>
                 <div 
                   className="mt-4 w-12 h-px mx-auto transition-all duration-500 group-hover:w-20"
                   style={{ backgroundColor: 'rgba(201, 169, 98, 0.3)' }}
@@ -159,7 +161,7 @@ export default function AboutPage() {
               <motion.div variants={fadeInUp}>
                 <SectionHeader
                   eyebrow="Our Journey"
-                  title="Quarry-Owned Excellence Since Day One"
+                  title="Excellence from Source to Site"
                   align="left"
                   className="mb-8"
                 />
@@ -172,9 +174,10 @@ export default function AboutPage() {
                   complete quality control at every step.
                 </Text>
                 <Text muted className="leading-relaxed">
-                  Based in Berhampur, Odisha—one of India&apos;s richest granite belts—we own and 
-                  operate our own quarries, giving us direct access to exceptional stone varieties 
-                  including Lavender Blue, SK Blue, Ikon Brown, and Star White.
+                  We own and operate our exclusive 100-acre Lavender Blue quarry in Berhampur, 
+                  Odisha—one of India&apos;s richest granite belts. While Lavender Blue is our signature 
+                  stone from our own quarry, our factory also processes and supplies a variety of 
+                  premium granites including SK Blue, Ikon Brown, and Star White.
                 </Text>
                 <Text muted className="leading-relaxed">
                   Our state-of-the-art processing facility ensures every slab meets our exacting 
@@ -312,6 +315,59 @@ export default function AboutPage() {
                   We understand project timelines. Our logistics ensure your stone arrives when you need it.
                 </Text>
               </motion.div>
+            </motion.div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Quality Assurance Section - Placeholder */}
+      <Section padding="lg" background="charcoal-light">
+        <Container>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <SectionHeader
+                eyebrow="Quality Assurance"
+                title="Certified Excellence"
+                description="Our commitment to quality is backed by rigorous testing and certification."
+              />
+            </motion.div>
+
+            <motion.div 
+              variants={fadeInUp}
+              className="max-w-4xl mx-auto"
+            >
+              {/* Placeholder for QA Report */}
+              <div 
+                className="p-12 rounded-2xl text-center"
+                style={{ 
+                  backgroundColor: '#141414',
+                  border: '2px dashed rgba(201, 169, 98, 0.3)'
+                }}
+              >
+                <Shield className="w-16 h-16 mx-auto mb-6" style={{ color: 'rgba(201, 169, 98, 0.4)' }} />
+                <h3 className="font-serif text-2xl mb-3" style={{ color: '#F5F5F0' }}>
+                  Quality Assurance Report
+                </h3>
+                <Text muted className="max-w-md mx-auto mb-6">
+                  Our quality certifications, testing reports, and compliance documentation will be displayed here.
+                </Text>
+                <div className="flex flex-wrap justify-center gap-4 text-sm" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>
+                  <span className="px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)' }}>
+                    ISO Certification
+                  </span>
+                  <span className="px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)' }}>
+                    Material Testing
+                  </span>
+                  <span className="px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)' }}>
+                    Quality Reports
+                  </span>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </Container>

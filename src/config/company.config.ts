@@ -29,7 +29,8 @@ export const companyInfo = {
     capacityUnit: "sqft",
     yearsExperience: 25,               // ← PLACEHOLDER: Update years of experience
     projectsCompleted: 500,            // ← PLACEHOLDER: Update projects count
-    quarriesOwned: 3,                  // ← PLACEHOLDER: Update quarries owned
+    quarriesOwned: 1,                  // 1 own quarry (Lavender Blue), variety stones processed at factory
+    quarryAcres: 100,                  // 100 acres Lavender Blue quarry
   },
 };
 
