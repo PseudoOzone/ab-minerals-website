@@ -176,7 +176,9 @@ interface TypographyProps {
   style?: React.CSSProperties;
 }
 
-const variantStyles: Record<string, { tag: keyof JSX.IntrinsicElements; className: string }> = {
+type ValidTag = 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'span';
+
+const variantStyles: Record<string, { tag: ValidTag; className: string }> = {
   display: { tag: 'h1', className: 'text-4xl md:text-5xl lg:text-6xl font-light tracking-tight' },
   h1: { tag: 'h1', className: 'text-3xl md:text-4xl lg:text-5xl font-light tracking-tight' },
   h2: { tag: 'h2', className: 'text-2xl md:text-3xl lg:text-4xl font-light tracking-tight' },
@@ -188,18 +190,28 @@ const variantStyles: Record<string, { tag: keyof JSX.IntrinsicElements; classNam
 };
 
 export function Typography({ children, variant = 'body', className, style }: TypographyProps) {
-  const { tag: Tag, className: variantClass } = variantStyles[variant];
+  const { tag, className: variantClass } = variantStyles[variant];
   const isLabel = variant === 'label';
+  const combinedStyle = { 
+    color: isLabel ? COLORS.gold : COLORS.cream,
+    ...style,
+  };
+  const combinedClass = cn(variantClass, className);
   
-  return (
-    <Tag
-      className={cn(variantClass, className)}
-      style={{ 
-        color: isLabel ? COLORS.gold : COLORS.cream,
-        ...style,
-      }}
-    >
-      {children}
-    </Tag>
-  );
+  // Render the appropriate tag
+  switch (tag) {
+    case 'h1':
+      return <h1 className={combinedClass} style={combinedStyle}>{children}</h1>;
+    case 'h2':
+      return <h2 className={combinedClass} style={combinedStyle}>{children}</h2>;
+    case 'h3':
+      return <h3 className={combinedClass} style={combinedStyle}>{children}</h3>;
+    case 'h4':
+      return <h4 className={combinedClass} style={combinedStyle}>{children}</h4>;
+    case 'p':
+      return <p className={combinedClass} style={combinedStyle}>{children}</p>;
+    case 'span':
+    default:
+      return <span className={combinedClass} style={combinedStyle}>{children}</span>;
+  }
 }
