@@ -48,8 +48,8 @@ export const contactInfo = {
   
   // Email
   email: {
-    primary: "info@abminerals.com",    // ← PLACEHOLDER: Update email
-    sales: "sales@abminerals.com",     // ← PLACEHOLDER: Update email
+    primary: "office@abminerals.com",
+    sales: "office@abminerals.com",
   },
   
   // Address
