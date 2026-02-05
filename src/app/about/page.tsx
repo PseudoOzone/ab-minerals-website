@@ -130,7 +130,7 @@ export default function AboutPage() {
       <Section padding="lg" background="charcoal">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Image */}
+            {/* Video */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -142,12 +142,33 @@ export default function AboutPage() {
                 border: '1px solid rgba(245, 245, 240, 0.05)'
               }}
             >
-              {/* Placeholder for quarry image */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <Building2 className="w-16 h-16 mx-auto mb-4" style={{ color: 'rgba(201, 169, 98, 0.3)' }} />
-                  <Text muted>Quarry & Factory Image</Text>
-                </div>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="h-full w-full object-cover"
+                style={{
+                  filter: 'contrast(1.1) saturate(1.15) brightness(1.05)',
+                }}
+              >
+                <source src="/quarry/quarry-1.mp4" type="video/mp4" />
+              </video>
+              <div 
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(13, 13, 13, 0.2) 0%, transparent 50%, rgba(13, 13, 13, 0.3) 100%)',
+                }}
+              />
+              {/* Floating Label */}
+              <div 
+                className="absolute bottom-4 left-4 px-3 py-2 rounded-lg backdrop-blur-md"
+                style={{ 
+                  backgroundColor: 'rgba(13, 13, 13, 0.7)',
+                  border: '1px solid rgba(201, 169, 98, 0.2)',
+                }}
+              >
+                <span className="text-sm font-medium" style={{ color: '#C9A962' }}>Our Quarry</span>
               </div>
             </motion.div>
 
@@ -320,7 +341,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* Quality Assurance Section - Placeholder */}
+      {/* Quality Assurance Section */}
       <Section padding="lg" background="charcoal-light">
         <Container>
           <motion.div
@@ -333,39 +354,104 @@ export default function AboutPage() {
               <SectionHeader
                 eyebrow="Quality Assurance"
                 title="Certified Excellence"
-                description="Our commitment to quality is backed by rigorous testing and certification."
+                description="Our commitment to quality is backed by rigorous testing from government-approved laboratories."
               />
             </motion.div>
 
             <motion.div 
               variants={fadeInUp}
-              className="max-w-4xl mx-auto"
+              className="max-w-5xl mx-auto"
             >
-              {/* Placeholder for QA Report */}
+              {/* QA Certificate Card */}
               <div 
-                className="p-12 rounded-2xl text-center"
+                className="p-8 md:p-12 rounded-2xl"
                 style={{ 
                   backgroundColor: '#141414',
-                  border: '2px dashed rgba(201, 169, 98, 0.3)'
+                  border: '1px solid rgba(201, 169, 98, 0.2)'
                 }}
               >
-                <Shield className="w-16 h-16 mx-auto mb-6" style={{ color: 'rgba(201, 169, 98, 0.4)' }} />
-                <h3 className="font-serif text-2xl mb-3" style={{ color: '#F5F5F0' }}>
-                  Quality Assurance Report
-                </h3>
-                <Text muted className="max-w-md mx-auto mb-6">
-                  Our quality certifications, testing reports, and compliance documentation will be displayed here.
-                </Text>
-                <div className="flex flex-wrap justify-center gap-4 text-sm" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>
-                  <span className="px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)' }}>
-                    ISO Certification
+                {/* Header */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 pb-6" style={{ borderBottom: '1px solid rgba(245, 245, 240, 0.1)' }}>
+                  <div>
+                    <h3 className="font-serif text-2xl mb-2" style={{ color: '#F5F5F0' }}>
+                      Safe Bearing Capacity Test Report
+                    </h3>
+                    <p className="text-sm" style={{ color: 'rgba(245, 245, 240, 0.6)' }}>
+                      Granite-Lavender Blue | IS: 1121-Part-I & 1124
+                    </p>
+                  </div>
+                  <div className="mt-4 md:mt-0 flex items-center gap-2">
+                    <Shield className="w-5 h-5" style={{ color: '#C9A962' }} />
+                    <span className="text-sm font-medium" style={{ color: '#C9A962' }}>Govt. Approved Lab</span>
+                  </div>
+                </div>
+
+                {/* Test Results Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                  <div className="text-center p-4 rounded-xl" style={{ backgroundColor: 'rgba(201, 169, 98, 0.05)' }}>
+                    <div className="text-3xl font-light mb-1" style={{ color: '#C9A962' }}>1903</div>
+                    <div className="text-xs uppercase tracking-wider" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>kgf/cm² (Dry)</div>
+                    <div className="text-sm mt-1" style={{ color: '#F5F5F0' }}>Compressive Strength</div>
+                  </div>
+                  <div className="text-center p-4 rounded-xl" style={{ backgroundColor: 'rgba(201, 169, 98, 0.05)' }}>
+                    <div className="text-3xl font-light mb-1" style={{ color: '#C9A962' }}>1694</div>
+                    <div className="text-xs uppercase tracking-wider" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>kgf/cm² (Wet)</div>
+                    <div className="text-sm mt-1" style={{ color: '#F5F5F0' }}>Compressive Strength</div>
+                  </div>
+                  <div className="text-center p-4 rounded-xl" style={{ backgroundColor: 'rgba(201, 169, 98, 0.05)' }}>
+                    <div className="text-3xl font-light mb-1" style={{ color: '#C9A962' }}>0.36%</div>
+                    <div className="text-xs uppercase tracking-wider" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>Average</div>
+                    <div className="text-sm mt-1" style={{ color: '#F5F5F0' }}>Water Absorption</div>
+                  </div>
+                  <div className="text-center p-4 rounded-xl" style={{ backgroundColor: 'rgba(201, 169, 98, 0.05)' }}>
+                    <div className="text-3xl font-light mb-1" style={{ color: '#C9A962' }}>6</div>
+                    <div className="text-xs uppercase tracking-wider" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>Samples</div>
+                    <div className="text-sm mt-1" style={{ color: '#F5F5F0' }}>Tested</div>
+                  </div>
+                </div>
+
+                {/* Certifications */}
+                <div className="flex flex-wrap gap-3 mb-6">
+                  <span className="px-4 py-2 rounded-full text-sm" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}>
+                    BIS Standard IS: 1121
                   </span>
-                  <span className="px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)' }}>
-                    Material Testing
+                  <span className="px-4 py-2 rounded-full text-sm" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}>
+                    IDCO Registered
                   </span>
-                  <span className="px-4 py-2 rounded-full" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)' }}>
-                    Quality Reports
+                  <span className="px-4 py-2 rounded-full text-sm" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}>
+                    MES Approved (CE-Navy)
                   </span>
+                </div>
+
+                {/* Lab Info */}
+                <div className="pt-6" style={{ borderTop: '1px solid rgba(245, 245, 240, 0.1)' }}>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                      <p className="text-sm font-medium" style={{ color: '#F5F5F0' }}>Quality Consultorium</p>
+                      <p className="text-xs" style={{ color: 'rgba(245, 245, 240, 0.5)' }}>A Foundation Engineering & Quality Consultants | Govt. Approved Laboratory</p>
+                    </div>
+                    <div className="flex items-center gap-4 mt-2 md:mt-0">
+                      <p className="text-xs" style={{ color: 'rgba(245, 245, 240, 0.4)' }}>
+                        Tested for: Pune Metro Line 03 (PML-03) Project
+                      </p>
+                      <a
+                        href="/qa/quality-certificate.jpg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all hover:scale-105"
+                        style={{ 
+                          backgroundColor: 'rgba(201, 169, 98, 0.15)',
+                          color: '#C9A962',
+                          border: '1px solid rgba(201, 169, 98, 0.3)',
+                        }}
+                      >
+                        View Full Report
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
