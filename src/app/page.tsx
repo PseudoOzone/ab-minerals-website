@@ -53,11 +53,26 @@ export default function Home() {
           HERO SECTION
           ═══════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal-light to-charcoal" />
-        
-        {/* Gold accent glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px]" />
+        {/* Lavender Blue texture background — natural color preserved */}
+        <div className="absolute inset-0">
+          <Image
+            src="/textures/lavender-blue-hero.jpg"
+            alt="Lavender Blue Granite Texture"
+            fill
+            className="object-cover"
+            priority
+            quality={95}
+          />
+          {/* Minimal overlay — only on left side for text readability, rest shows natural stone */}
+          <div 
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to right, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.15) 65%, transparent 100%)' }}
+          />
+          <div 
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 25%, transparent 85%, rgba(10,10,10,0.4) 100%)' }}
+          />
+        </div>
         
         <Container className="relative z-10 pt-32 pb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -117,8 +132,15 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Hero 3D Slab Viewer - Floating in void */}
+            {/* Hero 3D Slab Viewer - Floating with subtle backdrop for contrast against textured bg */}
             <div className="relative w-full h-full min-h-[400px] lg:min-h-[500px]">
+              <div 
+                className="absolute inset-4 lg:inset-8 rounded-2xl"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.3) 70%, transparent 100%)',
+                  boxShadow: '0 25px 80px rgba(0,0,0,0.4)',
+                }}
+              />
               <HeroSlab 
                 albedoUrl="/stones/lavender-blue/albedo.png"
                 normalUrl="/stones/lavender-blue/normal.png"
@@ -524,42 +546,145 @@ export default function Home() {
               />
             </motion.div>
 
-            {/* Projects Grid */}
+            {/* Projects Grid - Featured projects with real images */}
             <motion.div
               variants={staggerContainer}
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
-              {benchmarkProjects.map((project) => (
+              {benchmarkProjects.filter(p => p.featured).map((project) => (
                 <motion.div
                   key={project.id}
                   variants={fadeInUp}
-                  className="text-center"
                 >
-                  <div 
-                    className="aspect-video mb-4 rounded-lg flex items-center justify-center"
-                    style={{ 
-                      backgroundColor: '#0A0A0A', 
-                      border: '1px solid rgba(245, 245, 240, 0.05)' 
-                    }}
-                  >
-                    {/* Project image placeholder */}
-                    <div className="text-4xl" style={{ color: 'rgba(201, 169, 98, 0.3)' }}>🏛️</div>
-                  </div>
-                  <h3 
-                    className="font-serif text-xl mb-1"
-                    style={{ color: '#F5F5F0' }}
-                  >
-                    {project.name}
-                  </h3>
-                  <p className="text-sm" style={{ color: '#C9A962' }}>{project.type}</p>
-                  <span 
-                    className="inline-block mt-2 px-3 py-1 text-xs rounded-full"
-                    style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}
-                  >
-                    {project.status}
-                  </span>
+                  <Link href="/projects" className="group block">
+                    <div 
+                      className="relative aspect-video mb-4 rounded-lg overflow-hidden"
+                      style={{ 
+                        backgroundColor: '#0A0A0A', 
+                        border: '1px solid rgba(245, 245, 240, 0.05)' 
+                      }}
+                    >
+                      {project.images && project.images.length > 0 ? (
+                        <Image
+                          src={project.images[0]}
+                          alt={project.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      ) : project.video ? (
+                        <video
+                          src={project.video}
+                          className="w-full h-full object-cover"
+                          muted
+                          loop
+                          playsInline
+                          autoPlay
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="text-4xl" style={{ color: 'rgba(201, 169, 98, 0.3)' }}>🏛️</div>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <h3 
+                      className="font-serif text-xl mb-1 group-hover:text-gold transition-colors"
+                      style={{ color: '#F5F5F0' }}
+                    >
+                      {project.name}
+                    </h3>
+                    <p className="text-sm" style={{ color: '#C9A962' }}>{project.type}</p>
+                    <span 
+                      className="inline-block mt-2 px-3 py-1 text-xs rounded-full"
+                      style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}
+                    >
+                      {project.status}
+                    </span>
+                  </Link>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* Other Notable Projects */}
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10"
+            >
+              {benchmarkProjects.filter(p => !p.featured).map((project) => (
+                <motion.div
+                  key={project.id}
+                  variants={fadeInUp}
+                >
+                  <Link href="/projects" className="group block">
+                    <div 
+                      className="relative aspect-video mb-4 rounded-lg overflow-hidden"
+                      style={{ 
+                        backgroundColor: '#0A0A0A', 
+                        border: '1px solid rgba(245, 245, 240, 0.05)' 
+                      }}
+                    >
+                      {project.images && project.images.length > 0 ? (
+                        <Image
+                          src={project.images[0]}
+                          alt={project.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="text-4xl" style={{ color: 'rgba(201, 169, 98, 0.3)' }}>🏛️</div>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                      {/* Stone tags */}
+                      <div className="absolute bottom-3 left-3 flex flex-wrap gap-1">
+                        {project.stoneUsed.map((stone) => (
+                          <span 
+                            key={stone}
+                            className="px-2 py-0.5 text-xs rounded-full backdrop-blur-sm"
+                            style={{ backgroundColor: 'rgba(201, 169, 98, 0.2)', color: '#C9A962', border: '1px solid rgba(201, 169, 98, 0.3)' }}
+                          >
+                            {stone}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="text-xs uppercase tracking-wider mb-1" style={{ color: '#C9A962' }}>{project.type}</p>
+                        <h3 className="font-serif text-lg mb-1" style={{ color: '#F5F5F0' }}>
+                          {project.name}
+                        </h3>
+                        <p className="text-sm" style={{ color: '#A0A0A0' }}>{project.description}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between mt-3">
+                      <span 
+                        className="inline-block px-3 py-1 text-xs rounded-full"
+                        style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}
+                      >
+                        {project.status}
+                      </span>
+                      {project.quantity && (
+                        <span className="text-sm font-medium" style={{ color: '#F5F5F0' }}>
+                          {project.quantity}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* View All Projects CTA */}
+            <motion.div variants={fadeInUp} className="text-center mt-10">
+              <Link href="/projects">
+                <Button variant="outline" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  View All Projects
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Disclaimer */}

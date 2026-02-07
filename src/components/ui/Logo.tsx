@@ -46,7 +46,7 @@ export function Logo({
       {(variant === "full" || variant === "icon") && (
         <div className="relative flex-shrink-0">
           <Image
-            src="/logo/ab-minerals-logo.png"
+            src="/logo-abm.png"
             alt="A B Minerals"
             width={sizes.iconWidth}
             height={sizes.iconHeight}
@@ -95,45 +95,25 @@ export function TextLogo({
   size = "md",
   linkToHome = true,
 }: Omit<LogoProps, "variant">) {
-  const textSizes = {
-    sm: "text-lg",
-    md: "text-xl",
-    lg: "text-2xl",
-  };
-  
-  const iconSizes = {
-    sm: "w-6 h-6",
-    md: "w-8 h-8",
-    lg: "w-10 h-10",
+  const logoSizes = {
+    sm: { width: 36, height: 36 },
+    md: { width: 48, height: 48 },
+    lg: { width: 60, height: 60 },
   };
   
   const content = (
     <div className={cn("flex items-center gap-3", className)}>
-      {/* Diamond icon with AB */}
-      <div className={cn("relative flex-shrink-0", iconSizes[size])}>
-        <svg viewBox="0 0 100 100" className="w-full h-full">
-          <defs>
-            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#D4BC7E"/>
-              <stop offset="50%" stopColor="#C9A962"/>
-              <stop offset="100%" stopColor="#8B7355"/>
-            </linearGradient>
-          </defs>
-          <rect x="15" y="15" width="70" height="70" rx="2" fill="none" stroke="url(#goldGrad)" strokeWidth="3" transform="rotate(45 50 50)"/>
-          <text x="50" y="58" fontFamily="Georgia, serif" fontSize="24" fontWeight="500" fill="url(#goldGrad)" textAnchor="middle">AB</text>
-        </svg>
+      {/* ABM Diamond Logo */}
+      <div className="relative flex-shrink-0">
+        <Image
+          src="/logo-abm.png"
+          alt="A B Minerals"
+          width={logoSizes[size].width}
+          height={logoSizes[size].height}
+          className="object-contain"
+          priority
+        />
       </div>
-      
-      {/* Company name */}
-      <span
-        className={cn(
-          "font-serif font-medium tracking-widest",
-          textSizes[size]
-        )}
-        style={{ color: '#F5F5F0' }}
-      >
-        A B MINERALS
-      </span>
     </div>
   );
   

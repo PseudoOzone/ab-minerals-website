@@ -23,12 +23,6 @@ const quarryMedia = [
   },
   {
     type: 'video' as const,
-    src: '/quarry/factory.mp4',
-    title: 'Factory Processing',
-    description: 'From raw blocks to polished slabs — our integrated factory delivers precision finishing.',
-  },
-  {
-    type: 'video' as const,
     src: '/quarry/lavender-blue.mp4',
     title: 'Lavender Blue Granite',
     description: 'The signature stone of A B Minerals — elegant waves of blue and grey.',
@@ -482,6 +476,55 @@ export default function QuarryPage() {
         </Container>
       </section>
 
+      {/* ═══════════════════════════════════════════════════════════════
+          QUARRY LOCATION - Satellite Map
+          ═══════════════════════════════════════════════════════════════ */}
+      <section className="py-24" style={{ backgroundColor: '#0A0A0A' }}>
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <p className="text-sm tracking-widest uppercase mb-4" style={{ color: '#C9A962' }}>
+              Quarry Location
+            </p>
+            <h2 
+              className="font-display text-4xl md:text-5xl font-light mb-4"
+              style={{ color: '#F5F5F0' }}
+            >
+              Our 100-Acre Lavender Blue Reserve
+            </h2>
+            <p className="max-w-2xl mx-auto text-lg" style={{ color: 'rgba(245, 245, 240, 0.6)' }}>
+              Coordinates: 19.3424°N, 84.7271°E — Berhampur, Odisha
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden"
+            style={{ 
+              border: '1px solid rgba(201, 169, 98, 0.2)',
+              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.4)'
+            }}
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800!2d84.7271239!3d19.3424339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDIwJzMyLjgiTiA4NMKwNDMnMzcuNiJF!5e1!3m2!1sen!2sin!4v1707100000000!5m2!1sen!2sin"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+            />
+          </motion.div>
+        </Container>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24" style={{ backgroundColor: '#0D0D0D' }}>
         <Container>
@@ -513,6 +556,20 @@ export default function QuarryPage() {
                 }}
               >
                 Schedule a Visit
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+              <Link
+                href="/factory"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-lg transition-all hover:scale-105"
+                style={{ 
+                  backgroundColor: 'transparent',
+                  color: '#F5F5F0',
+                  border: '1px solid rgba(201, 169, 98, 0.3)',
+                }}
+              >
+                Visit Our Factory
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

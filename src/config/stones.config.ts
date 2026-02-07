@@ -66,8 +66,8 @@ export const stones: Stone[] = [
     name: "Lavender Blue",
     
     tagline: "Elegant waves of blue and grey",
-    description: "Lavender Blue granite features a mesmerizing blend of lavender-grey tones with flowing wave patterns. Quarried from our own 100-acre reserve in Odisha, this is our signature stone — the only granite we extract ourselves.",
-    shortDescription: "Premium blue-grey granite with flowing wave patterns",
+    description: "Lavender Blue granite features a mesmerizing blend of lavender-grey tones with flowing wave patterns. Quarried from our own 100-acre reserve in Odisha, this is our signature stone — the only granite we extract ourselves. Used in landmark projects including Sharjah International Airport, Surat Bullet Train Station, SCB Medical College, Old Bangalore Airport, and Pune Metro. Available in gang saw slabs (300×150 cm+), block cutter sizes (60–120 cm height), and precision tiles (30×30, 45×45, 30×60, 60×60, 90×90, 90×120 cm) — processed at our own factory in Chamakhandi, Odisha.",
+    shortDescription: "Premium blue-grey granite with flowing wave patterns — from our own quarry",
     
     color: "#7B8FA0",
     images: {
@@ -85,13 +85,13 @@ export const stones: Stone[] = [
     },
     
     specs: {
-      finishes: ["Polished", "Flamed", "Leather"],
-      thicknesses: ["18mm", "20mm", "30mm"],
-      slabSize: "260×160 cm to 300×180 cm",
-      origin: "Berhampur, Odisha",
+      finishes: ["Polished", "Honed", "Laptro / Lepatora", "Flamed"],
+      thicknesses: ["15mm", "18mm", "20mm", "30mm", "Custom"],
+      slabSize: "Gang Saw: 300×150 cm+ | Block Cutter: 60–120 cm height | Tiles: 30×30 to 90×120 cm",
+      origin: "Own Quarry — Berhampur, Odisha",
     },
     
-    applications: ["Building Facades", "Flooring", "Interior Cladding", "Countertops"],
+    applications: ["Airport Terminals", "Metro Stations", "Building Facades", "Flooring", "Interior Cladding", "Hospital Exteriors", "Countertops"],
     priceCategory: "Premium",
     inStock: true,
     fromOwnQuarry: true, // Our exclusive quarry in Odisha
@@ -106,7 +106,7 @@ export const stones: Stone[] = [
     
     // ← PLACEHOLDER: Update these descriptions
     tagline: "Deep lavender-blue with dramatic movement",
-    description: "SK Blue granite showcases stunning grey-white tones with dramatic swirling patterns. Factory-processed at our Berhampur facility, this statement stone transforms spaces with its bold, contemporary character.",
+    description: "SK Blue granite showcases stunning grey-white tones with dramatic swirling patterns. Factory-processed at our Chamakhandi facility using multi-cutters and 12-head line polishers, this statement stone transforms spaces with its bold, contemporary character. Used in IGI Delhi Airport international terminal. Available in gang saw slabs, block cutter sizes, and precision tiles with all four finishes — Polished, Honed, Laptro, and Flamed.",
     shortDescription: "Grey-white granite with dramatic swirling patterns",
     
     color: "#9EAAB8",
@@ -125,13 +125,13 @@ export const stones: Stone[] = [
     },
     
     specs: {
-      finishes: ["Polished", "Flamed", "Leather"],
-      thicknesses: ["18mm", "20mm", "30mm"],
-      slabSize: "260×160 cm to 300×180 cm",
-      origin: "Berhampur, Odisha",
+      finishes: ["Polished", "Honed", "Laptro / Lepatora", "Flamed"],
+      thicknesses: ["15mm", "18mm", "20mm", "30mm", "Custom"],
+      slabSize: "Gang Saw: 300×150 cm+ | Block Cutter: 60–120 cm height | Tiles: 30×30 to 90×120 cm",
+      origin: "Factory-processed — Chamakhandi, Odisha",
     },
     
-    applications: ["Building Facades", "Flooring", "Feature Walls", "Reception Areas"],
+    applications: ["Airport Terminals", "Building Facades", "Flooring", "Feature Walls", "Reception Areas"],
     priceCategory: "Premium",
     inStock: true,
     
@@ -145,7 +145,7 @@ export const stones: Stone[] = [
     
     // ← PLACEHOLDER: Update these descriptions
     tagline: "Rich brown with linear elegance",
-    description: "Ikon Brown granite presents a sophisticated palette of deep warm brown tones with distinctive linear grain patterns. Factory-processed at our Berhampur facility, its earthy elegance brings warmth to both traditional and contemporary designs.",
+    description: "Ikon Brown granite presents a sophisticated palette of deep warm brown tones with distinctive linear grain patterns. Factory-processed at our Chamakhandi facility with multi-cutters and precision polishing, its earthy elegance brings warmth to both traditional and contemporary designs. Used in IGI Delhi Airport. Available in all four finishes — Polished, Honed, Laptro, and Flamed — with custom thickness options.",
     shortDescription: "Warm brown granite with distinctive linear patterns",
     
     color: "#5C4A3D",
@@ -164,13 +164,13 @@ export const stones: Stone[] = [
     },
     
     specs: {
-      finishes: ["Polished", "Flamed", "Leather"],
-      thicknesses: ["18mm", "20mm", "30mm"],
-      slabSize: "260×160 cm to 300×180 cm",
-      origin: "Berhampur, Odisha",
+      finishes: ["Polished", "Honed", "Laptro / Lepatora", "Flamed"],
+      thicknesses: ["15mm", "18mm", "20mm", "30mm", "Custom"],
+      slabSize: "Gang Saw: 300×150 cm+ | Block Cutter: 60–120 cm height | Tiles: 30×30 to 90×120 cm",
+      origin: "Factory-processed — Chamakhandi, Odisha",
     },
     
-    applications: ["Hotel Interiors", "Flooring", "Lobby Areas", "Staircases"],
+    applications: ["Airport Terminals", "Hotel Interiors", "Flooring", "Lobby Areas", "Staircases"],
     priceCategory: "Premium",
     inStock: true,
     
@@ -183,7 +183,7 @@ export const stones: Stone[] = [
     name: "Star White",
     
     tagline: "Pristine white with garnet stars",
-    description: "Star White granite features a stunning white-grey base adorned with distinctive garnet crystal inclusions that sparkle like stars. Factory-processed at our Berhampur facility, this unique stone creates bright, airy spaces.",
+    description: "Star White granite features a stunning white-grey base adorned with distinctive garnet crystal inclusions that sparkle like stars. Factory-processed at our Chamakhandi facility with 12-head polishing line for maximum luster. Used in Old Bangalore Airport alongside Lavender Blue. Available in all finishes — Polished, Honed, Laptro, and Flamed — with custom thickness and size options.",
     shortDescription: "White-grey granite with sparkling garnet inclusions",
     
     color: "#D8D8D8",
@@ -202,13 +202,13 @@ export const stones: Stone[] = [
     },
     
     specs: {
-      finishes: ["Polished", "Flamed", "Leather"],
-      thicknesses: ["18mm", "20mm", "30mm"],
-      slabSize: "260×160 cm to 300×180 cm",
-      origin: "Berhampur, Odisha",
+      finishes: ["Polished", "Honed", "Laptro / Lepatora", "Flamed"],
+      thicknesses: ["15mm", "18mm", "20mm", "30mm", "Custom"],
+      slabSize: "Gang Saw: 300×150 cm+ | Block Cutter: 60–120 cm height | Tiles: 30×30 to 90×120 cm",
+      origin: "Factory-processed — Chamakhandi, Odisha",
     },
     
-    applications: ["Government Buildings", "Corporate Offices", "Flooring", "Countertops"],
+    applications: ["Airport Terminals", "Government Buildings", "Corporate Offices", "Flooring", "Countertops"],
     priceCategory: "Premium",
     inStock: true,
     
