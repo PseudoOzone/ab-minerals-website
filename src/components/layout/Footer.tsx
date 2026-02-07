@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { TextLogo } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { companyInfo, contactInfo, socialLinks } from "@/config/company.config";
 import { siteConfig } from "@/config/site.config";
 
@@ -35,7 +35,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <TextLogo size="md" linkToHome={false} className="mb-6" />
+            <Logo size="md" linkToHome={false} className="mb-6" />
             <p className="text-sm leading-relaxed mb-6" style={{ color: COLORS.creamMuted }}>
               {companyInfo.tagline}
             </p>

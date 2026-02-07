@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { TextLogo } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site.config";
@@ -70,7 +70,7 @@ export function Header() {
         <Container>
           <nav className="flex items-center justify-between">
             {/* Logo */}
-            <TextLogo size="md" />
+            <Logo size="md" />
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
