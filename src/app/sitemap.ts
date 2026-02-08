@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { stonesConfig } from '@/config/stones.config';
+import { stones } from '@/config/stones.config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.abminerals.com';
@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic stone pages
-  const stonePages = stonesConfig.map((stone) => ({
+  const stonePages = stones.map((stone) => ({
     url: `${baseUrl}/stones/${stone.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
