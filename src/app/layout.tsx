@@ -39,6 +39,11 @@ export const metadata: Metadata = {
   keywords: seoDefaults.keywords,
   authors: [{ name: companyInfo.name }],
   creator: companyInfo.name,
+  icons: {
+    icon: '/logo-abm.png',
+    shortcut: '/logo-abm.png',
+    apple: '/logo-abm.png',
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
