@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { seoDefaults, companyInfo } from "@/config";
 import "./globals.css";
 
@@ -29,7 +30,7 @@ const inter = Inter({
 // ═══════════════════════════════════════════════════════════════════════
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://abminerals.in'),
+  metadataBase: new URL('https://www.abminerals.com'),
   title: {
     default: seoDefaults.defaultTitle,
     template: seoDefaults.titleTemplate,
@@ -69,6 +70,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        <OrganizationJsonLd />
+        <LocalBusinessJsonLd />
+        <WebSiteJsonLd />
+      </head>
       <body 
         className="font-sans antialiased"
         style={{ backgroundColor: '#0A0A0A', color: '#F5F5F0' }}
