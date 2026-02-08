@@ -35,7 +35,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Logo size="md" linkToHome={false} className="mb-6" />
+            <Logo size="md" variant="icon" linkToHome={false} className="mb-6" />
             <p className="text-sm leading-relaxed mb-6" style={{ color: COLORS.creamMuted }}>
               {companyInfo.tagline}
             </p>

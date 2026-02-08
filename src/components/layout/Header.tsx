@@ -70,7 +70,7 @@ export function Header() {
         <Container>
           <nav className="flex items-center justify-between">
             {/* Logo */}
-            <Logo size="md" />
+            <Logo size="lg" variant="full" />
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">

@@ -16,19 +16,19 @@ interface LogoProps {
 
 const sizeConfig = {
   sm: {
-    iconWidth: 32,
-    iconHeight: 32,
-    text: "text-lg",
+    iconWidth: 40,
+    iconHeight: 40,
+    text: "text-base",
   },
   md: {
-    iconWidth: 44,
-    iconHeight: 44,
-    text: "text-xl",
+    iconWidth: 48,
+    iconHeight: 48,
+    text: "text-lg",
   },
   lg: {
     iconWidth: 56,
     iconHeight: 56,
-    text: "text-2xl",
+    text: "text-xl",
   },
 };
 
@@ -41,13 +41,13 @@ export function Logo({
   const sizes = sizeConfig[size];
   
   const content = (
-    <div className={cn("flex items-center gap-3", className)}>
+    <div className={cn("flex items-center gap-2", className)}>
       {/* Icon/Monogram - Diamond shaped logo */}
       {(variant === "full" || variant === "icon") && (
         <div className="relative flex-shrink-0">
           <Image
             src="/logo-abm.png"
-            alt="A B Minerals"
+            alt="A B Minerals Pvt Ltd"
             width={sizes.iconWidth}
             height={sizes.iconHeight}
             className="object-contain"
@@ -60,13 +60,14 @@ export function Logo({
       {(variant === "full" || variant === "text") && (
         <span
           className={cn(
-            "font-serif font-medium tracking-wider",
+            "font-serif font-medium tracking-wide whitespace-nowrap",
             sizes.text
           )}
           style={{ color: '#F5F5F0' }}
         >
           <span style={{ color: '#C9A962' }}>A B</span>{" "}
-          <span>MINERALS</span>
+          <span>MINERALS</span>{" "}
+          <span className="opacity-80 text-[0.85em]">Pvt Ltd</span>
         </span>
       )}
     </div>
@@ -96,9 +97,9 @@ export function TextLogo({
   linkToHome = true,
 }: Omit<LogoProps, "variant">) {
   const logoSizes = {
-    sm: { width: 36, height: 36 },
-    md: { width: 48, height: 48 },
-    lg: { width: 60, height: 60 },
+    sm: { width: 50, height: 50 },
+    md: { width: 70, height: 70 },
+    lg: { width: 100, height: 100 },
   };
   
   const content = (
@@ -107,7 +108,7 @@ export function TextLogo({
       <div className="relative flex-shrink-0">
         <Image
           src="/logo-abm.png"
-          alt="A B Minerals"
+          alt="A B Minerals Pvt Ltd"
           width={logoSizes[size].width}
           height={logoSizes[size].height}
           className="object-contain"

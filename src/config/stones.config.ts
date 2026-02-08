@@ -96,8 +96,8 @@ export const stones: Stone[] = [
     inStock: true,
     fromOwnQuarry: true, // Our exclusive quarry in Odisha
     
-    metaTitle: "Lavender Blue Granite | A B Minerals",
-    metaDescription: "Premium Lavender Blue granite slabs from A B Minerals. Quarry-owned, factory-finished. Perfect for facades, flooring, and luxury interiors. Pan-India delivery.",
+    metaTitle: "Lavender Blue Granite | A B Minerals Pvt Ltd",
+    metaDescription: "Premium Lavender Blue granite slabs from A B Minerals Pvt Ltd. Lavender Blue Quarry-Owner, factory-finished. Perfect for facades, flooring, and luxury interiors. Pan-India delivery.",
   },
   {
     id: "sk-blue",
@@ -135,8 +135,8 @@ export const stones: Stone[] = [
     priceCategory: "Premium",
     inStock: true,
     
-    metaTitle: "SK Blue Granite | A B Minerals",
-    metaDescription: "Premium SK Blue granite slabs from A B Minerals. Bold lavender-blue tones with dramatic patterns. Factory-finished and quality assured. Pan-India delivery.",
+    metaTitle: "SK Blue Granite | A B Minerals Pvt Ltd",
+    metaDescription: "Premium SK Blue granite slabs from A B Minerals Pvt Ltd. Bold lavender-blue tones with dramatic patterns. Factory-finished and quality assured. Pan-India delivery.",
   },
   {
     id: "ikon-brown",
@@ -174,8 +174,8 @@ export const stones: Stone[] = [
     priceCategory: "Premium",
     inStock: true,
     
-    metaTitle: "Ikon Brown Granite | A B Minerals",
-    metaDescription: "Premium Ikon Brown granite slabs from A B Minerals. Rich brown tones with linear patterns. Factory-finished and quality assured. Pan-India delivery.",
+    metaTitle: "Ikon Brown Granite | A B Minerals Pvt Ltd",
+    metaDescription: "Premium Ikon Brown granite slabs from A B Minerals Pvt Ltd. Rich brown tones with linear patterns. Factory-finished and quality assured. Pan-India delivery.",
   },
   {
     id: "star-white",
@@ -212,8 +212,8 @@ export const stones: Stone[] = [
     priceCategory: "Premium",
     inStock: true,
     
-    metaTitle: "Star White Granite | A B Minerals",
-    metaDescription: "Premium Star White granite slabs from A B Minerals. Unique white granite with garnet inclusions. Factory-finished and quality assured. Pan-India delivery.",
+    metaTitle: "Star White Granite | A B Minerals Pvt Ltd",
+    metaDescription: "Premium Star White granite slabs from A B Minerals Pvt Ltd. Unique white granite with garnet inclusions. Factory-finished and quality assured. Pan-India delivery.",
   },
 ];
 

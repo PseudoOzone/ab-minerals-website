@@ -14,9 +14,9 @@
 // ═══════════════════════════════════════════════════════════════════════
 
 export const companyInfo = {
-  name: "A B Minerals",
-  legalName: "A B Minerals",           // ← PLACEHOLDER: Update if different legal name
-  tagline: "Quarry-Owned. Factory-Finished. Premium Granite Slabs.",
+  name: "A B Minerals Pvt Ltd",
+  legalName: "A B Minerals Pvt Ltd",   // Legal company name
+  tagline: "Lavender Blue Quarry-Owner. Factory-Finished. Premium Granite Slabs.",
   description: "Premium granite supplier with own quarry and factory finishing. Pan-India dispatch and export-ready.",
   
   // Founding
@@ -258,7 +258,7 @@ export const capabilities = [
   {
     id: "quarry",
     title: "Own Quarry",
-    shortTitle: "Quarry-Owned",
+    shortTitle: "Lavender Blue Quarry-Owner",
     description: "Secure, traceable supply from our own granite reserves in Odisha",
     icon: "Mountain",
   },
@@ -304,10 +304,10 @@ export const capabilities = [
 // ═══════════════════════════════════════════════════════════════════════
 
 export const seoDefaults = {
-  siteName: "A B Minerals",
-  titleTemplate: "%s | A B Minerals",
-  defaultTitle: "A B Minerals | Premium Granite Slabs | Quarry-Owned, Factory-Finished",
-  defaultDescription: "Premium granite slabs from A B Minerals. Quarry-owned, factory-finished granite for architects, builders, and contractors. Lavender Blue, SK Blue, Ikon Brown, Star White. Pan-India delivery.",
+  siteName: "A B Minerals Pvt Ltd",
+  titleTemplate: "%s | A B Minerals Pvt Ltd",
+  defaultTitle: "A B Minerals Pvt Ltd | Premium Granite Slabs | Lavender Blue Quarry-Owner, Factory-Finished",
+  defaultDescription: "Premium granite slabs from A B Minerals Pvt Ltd. Lavender Blue Quarry-Owner, factory-finished granite for architects, builders, and contractors. Lavender Blue, SK Blue, Ikon Brown, Star White. Pan-India delivery.",
   keywords: [
     "granite slabs",
     "premium granite",

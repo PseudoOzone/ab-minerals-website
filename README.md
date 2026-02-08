@@ -1,6 +1,6 @@
 # A B Minerals Website
 
-Premium luxury website for A B Minerals - quarry-owned, factory-finished granite slabs.
+Premium luxury website for A B Minerals - Lavender Blue Quarry-Owner, factory-finished granite slabs.
 
 ## 🚀 Quick Start
 

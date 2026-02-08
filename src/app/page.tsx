@@ -5,7 +5,6 @@ import { ArrowRight, MapPin, MessageCircle, Sparkles, Shield, Truck, Factory } f
 import { Container, Section } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Heading, Text, SectionHeader, GoldText } from "@/components/ui/Typography";
-import { HeroSlab } from "@/components/3d/HeroSlab";
 import { AnimatedCounter, RevealOnScroll, AnimatedWords } from "@/components/ui/AnimatedElements";
 import { stones } from "@/config/stones.config";
 import { companyInfo, contactInfo, capabilities, benchmarkProjects, projectDisclaimer } from "@/config/company.config";
@@ -53,100 +52,103 @@ export default function Home() {
           HERO SECTION
           ═══════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Lavender Blue texture background — natural color preserved */}
+        {/* Lavender Blue raw photo background — no overlays, no shadows */}
         <div className="absolute inset-0">
           <Image
-            src="/textures/lavender-blue-hero.jpg"
-            alt="Lavender Blue Granite Texture"
+            src="/stones/lavender-blue/slab-1.jpg"
+            alt="Lavender Blue Granite"
             fill
-            className="object-cover"
+            className="object-contain"
             priority
-            quality={95}
-          />
-          {/* Minimal overlay — only on left side for text readability, rest shows natural stone */}
-          <div 
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to right, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.15) 65%, transparent 100%)' }}
-          />
-          <div 
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 25%, transparent 85%, rgba(10,10,10,0.4) 100%)' }}
+            quality={100}
           />
         </div>
         
         <Container className="relative z-10 pt-32 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Hero Content */}
+          <div className="max-w-4xl mx-auto">
+            {/* Hero Content with subtle frosted background */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="text-center lg:text-left"
+              className="px-8 py-10 rounded-2xl"
+              style={{
+                background: 'rgba(255, 255, 255, 0.15)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+              }}
             >
-              {/* Eyebrow */}
-              <motion.div variants={fadeInUp} className="mb-6">
-                <span className="inline-flex items-center gap-2 text-sm uppercase tracking-widest" style={{ color: '#C9A962' }}>
-                  <MapPin className="w-4 h-4" />
-                  {contactInfo.address.short}
-                </span>
+              {/* Logo Left + Address Right */}
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+                <Image
+                  src="/logo-abm.png"
+                  alt="A B Minerals Pvt Ltd"
+                  width={100}
+                  height={100}
+                  className="object-contain"
+                  priority
+                />
+                <div className="text-right">
+                  <span className="inline-flex items-center gap-2 text-sm uppercase tracking-widest font-semibold" style={{ color: '#1a1a2e' }}>
+                    <MapPin className="w-4 h-4" />
+                    Ganjam Office
+                  </span>
+                  <p className="text-sm mt-2 font-medium" style={{ color: '#2d2d44' }}>
+                    {contactInfo.address.line1}<br />
+                    {contactInfo.address.city}, {contactInfo.address.district}<br />
+                    {contactInfo.address.state} – {contactInfo.address.pincode}
+                  </p>
+                </div>
               </motion.div>
 
               {/* Headline */}
-              <motion.div variants={fadeInUp}>
+              <motion.div variants={fadeInUp} className="text-center">
                 <h1 className="font-serif font-medium tracking-tight text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6">
-                  <span style={{ color: '#C9A962' }}>Quarry-Owned.</span>
+                  <span style={{ color: '#B8860B' }}>Lavender Blue Quarry-Owner.</span>
                   <br />
-                  <span style={{ color: '#F5F5F0' }}>Factory-Finished.</span>
+                  <span style={{ color: '#1a1a2e' }}>Factory-Finished.</span>
                   <br />
-                  <span style={{ color: 'rgba(245, 245, 240, 0.9)' }}>Premium Granite Slabs.</span>
+                  <span style={{ color: '#1a1a2e' }}>Premium Granite Slabs.</span>
                 </h1>
               </motion.div>
 
               {/* Subtext */}
-              <motion.div variants={fadeInUp}>
-                <p className="text-lg mb-8 max-w-xl mx-auto lg:mx-0" style={{ color: '#A0A0A0' }}>
-                  Quarry-owned + polished to perfection, delivered to project sites across India.
+              <motion.div variants={fadeInUp} className="text-center">
+                <p className="text-base md:text-lg mb-10 max-w-xl mx-auto font-medium" style={{ color: '#2d2d44' }}>
+                  Lavender Blue Quarry-Owner + polished to perfection, delivered to project sites across India.
                   <br />
                   Pan-India dispatch • Export-ready • Quote in minutes on WhatsApp
                 </p>
               </motion.div>
 
               {/* CTAs */}
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button
-                  variant="gold"
-                  size="lg"
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                <button
                   onClick={handleRequestQuote}
-                  leftIcon={<MessageCircle className="w-5 h-5" />}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-sm transition-all duration-300"
+                  style={{ 
+                    backgroundColor: '#1a1a2e', 
+                    color: '#ffffff',
+                    boxShadow: '0 4px 14px rgba(26, 26, 46, 0.4)'
+                  }}
                 >
+                  <MessageCircle className="w-5 h-5" />
                   Request Quote
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  rightIcon={<ArrowRight className="w-5 h-5" />}
+                </button>
+                <button
                   onClick={() => document.getElementById("stones")?.scrollIntoView({ behavior: "smooth" })}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-sm transition-all duration-300"
+                  style={{ 
+                    backgroundColor: '#8B4513', 
+                    color: '#ffffff',
+                    boxShadow: '0 4px 14px rgba(139, 69, 19, 0.4)'
+                  }}
                 >
                   View Stones
-                </Button>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
               </motion.div>
             </motion.div>
-
-            {/* Hero 3D Slab Viewer - Floating with subtle backdrop for contrast against textured bg */}
-            <div className="relative w-full h-full min-h-[400px] lg:min-h-[500px]">
-              <div 
-                className="absolute inset-4 lg:inset-8 rounded-2xl"
-                style={{
-                  background: 'radial-gradient(ellipse at center, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.3) 70%, transparent 100%)',
-                  boxShadow: '0 25px 80px rgba(0,0,0,0.4)',
-                }}
-              />
-              <HeroSlab 
-                albedoUrl="/stones/lavender-blue/albedo.png"
-                normalUrl="/stones/lavender-blue/normal.png"
-                roughnessUrl="/stones/lavender-blue/roughness.png"
-              />
-            </div>
           </div>
         </Container>
 
@@ -305,7 +307,7 @@ export default function Home() {
               <SectionHeader
                 eyebrow="Our Collection"
                 title="Stones Collection"
-                description="Quarry-Owned. Factory-Finished. Four signature granites for landmark projects."
+                description="Lavender Blue Quarry-Owner. Factory-Finished. Four signature granites for landmark projects."
               />
             </motion.div>
 
