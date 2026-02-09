@@ -102,7 +102,7 @@ export const stones: Stone[] = [
   {
     id: "sk-blue",
     slug: "sk-blue",
-    name: "SK Blue",
+    name: "Vizag/SK Blue",
     
     // ← PLACEHOLDER: Update these descriptions
     tagline: "Deep lavender-blue with dramatic movement",
@@ -111,11 +111,11 @@ export const stones: Stone[] = [
     
     color: "#9EAAB8",
     images: {
-      hero: "/stones/sk-blue/slab-1.jpg",
-      thumbnail: "/stones/sk-blue/slab-1.jpg",
-      texture: "/stones/sk-blue/slab-1.jpg",
+      hero: "/stones/sk-blue/slab-1.png",
+      thumbnail: "/stones/sk-blue/slab-1.png",
+      texture: "/stones/sk-blue/slab-1.png",
       gallery: [
-        "/stones/sk-blue/slab-1.jpg",
+        "/stones/sk-blue/slab-1.png",
       ],
     },
     textures: {
@@ -135,8 +135,8 @@ export const stones: Stone[] = [
     priceCategory: "Premium",
     inStock: true,
     
-    metaTitle: "SK Blue Granite | A B Minerals Pvt Ltd",
-    metaDescription: "Premium SK Blue granite slabs from A B Minerals Pvt Ltd. Bold lavender-blue tones with dramatic patterns. Factory-finished and quality assured. Pan-India delivery.",
+    metaTitle: "Vizag/SK Blue Granite | A B Minerals Pvt Ltd",
+    metaDescription: "Premium Vizag/SK Blue granite slabs from A B Minerals Pvt Ltd. Bold lavender-blue tones with dramatic patterns. Factory-finished and quality assured. Pan-India delivery.",
   },
   {
     id: "ikon-brown",
