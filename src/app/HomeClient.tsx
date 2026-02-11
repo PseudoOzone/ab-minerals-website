@@ -103,11 +103,11 @@ export function HomeClient() {
               {/* Headline */}
               <motion.div variants={fadeInUp} className="text-center">
                 <h1 className="font-serif font-medium tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4 sm:mb-6">
-                  <span style={{ color: '#B8860B' }}>Lavender Blue from ₹105/sqft.</span>
+                  <span style={{ color: '#B8860B' }}>Lavender Blue Quarry-Owner.</span>
                   <br />
-                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Direct from Quarry Owner.</span>
+                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Factory-Finished.</span>
                   <br />
-                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Best Price — No Middlemen.</span>
+                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Premium Granite Slabs.</span>
                 </h1>
               </motion.div>
 
