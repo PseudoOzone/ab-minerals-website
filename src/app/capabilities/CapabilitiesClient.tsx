@@ -8,7 +8,7 @@ import { Heading, Text, SectionHeader } from "@/components/ui/Typography";
 import { companyInfo, capabilities } from "@/config/company.config";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
-import { generateWhatsAppUrl, messageTemplates } from "@/config/whatsapp.config";
+import { openChatBot } from "@/lib/chatbot-events";
 
 // ═══════════════════════════════════════════════════════════════════════
 // ANIMATION VARIANTS
@@ -50,8 +50,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function CapabilitiesClient() {
   const handleWhatsApp = () => {
-    const message = messageTemplates.general;
-    window.open(generateWhatsAppUrl(message), "_blank");
+    openChatBot("quote_start");
   };
 
   return (
@@ -258,7 +257,7 @@ export function CapabilitiesClient() {
                 onClick={handleWhatsApp}
                 leftIcon={<MessageCircle className="w-5 h-5" />}
               >
-                Get Quote on WhatsApp
+                Get a Quote
               </Button>
               <Link href="/stones">
                 <Button variant="outline" size="lg">

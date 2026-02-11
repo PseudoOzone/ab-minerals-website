@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, ArrowLeft, RotateCcw } from "lucide-react";
 import { chatSteps, ChatContext, buildWhatsAppMessage } from "@/config/chatbot.config";
 import { generateWhatsAppUrl, generateWhatsAppUrlForContact } from "@/config/whatsapp.config";
+import { onChatBotOpen } from "@/lib/chatbot-events";
 
 // ═══════════════════════════════════════════════════════════════════════
 // TYPES
@@ -96,26 +97,7 @@ export function SmartChatBot() {
     };
   }, []);
 
-  // Auto-scroll
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isTyping]);
-
-  // Focus input
-  useEffect(() => {
-    if (currentInput) {
-      setTimeout(() => inputRef.current?.focus(), 100);
-    }
-  }, [currentInput]);
-
-  // Notify badge
-  useEffect(() => {
-    if (!isOpen && messages.length > 0) {
-      setHasNewMessage(true);
-    }
-  }, [messages, isOpen]);
-
-  // Add bot message with typing delay
+  // Add bot message with typing delay (must be defined before useEffects that reference it)
   const addBotMessage = useCallback((stepId: string) => {
     const step = chatSteps[stepId];
     if (!step) return;
@@ -147,6 +129,41 @@ export function SmartChatBot() {
       }
     }, 600 + Math.random() * 400); // Natural typing delay
   }, [context]);
+
+  // Listen for external "open chatbot" events from other components
+  useEffect(() => {
+    const unsubscribe = onChatBotOpen((startStep?: string) => {
+      setIsVisible(true);
+      setIsOpen(true);
+      setHasNewMessage(false);
+      // Reset and start at specific step or welcome
+      setMessages([]);
+      setContext({});
+      setCurrentInput(null);
+      setPendingStep(null);
+      addBotMessage(startStep || "welcome");
+    });
+    return unsubscribe;
+  }, [addBotMessage]);
+
+  // Auto-scroll
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
+
+  // Focus input
+  useEffect(() => {
+    if (currentInput) {
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
+  }, [currentInput]);
+
+  // Notify badge
+  useEffect(() => {
+    if (!isOpen && messages.length > 0) {
+      setHasNewMessage(true);
+    }
+  }, [messages, isOpen]);
 
   // Initialize chat
   const startChat = useCallback(() => {

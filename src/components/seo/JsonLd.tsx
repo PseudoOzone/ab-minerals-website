@@ -93,9 +93,12 @@ interface ProductJsonLdProps {
   description: string;
   image: string;
   sku: string;
+  lowPrice?: number;
+  highPrice?: number;
 }
 
-export function ProductJsonLd({ name, description, image, sku }: ProductJsonLdProps) {
+export function ProductJsonLd({ name, description, image, sku, lowPrice, highPrice }: ProductJsonLdProps) {
+  const hasPrice = lowPrice && highPrice;
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -111,11 +114,23 @@ export function ProductJsonLd({ name, description, image, sku }: ProductJsonLdPr
       '@type': 'Organization',
       name: companyInfo.name,
     },
-    offers: {
+    offers: hasPrice ? {
+      '@type': 'AggregateOffer',
+      lowPrice: lowPrice.toString(),
+      highPrice: highPrice.toString(),
+      priceCurrency: 'INR',
+      unitText: 'per square foot',
+      availability: 'https://schema.org/InStock',
+      offerCount: '20',
+      seller: {
+        '@type': 'Organization',
+        name: companyInfo.name,
+      },
+    } : {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
       priceCurrency: 'INR',
-      price: '0', // Contact for pricing
+      price: '0',
       priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
       seller: {
         '@type': 'Organization',
@@ -179,3 +194,75 @@ export function WebSiteJsonLd() {
     />
   );
 }
+
+// FAQ Schema — targets "People Also Ask" and FAQ rich results
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export function FAQJsonLd({ faqs }: { faqs: FAQItem[] }) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// Lavender Blue specific FAQs for rich snippet domination
+export const lavenderBlueFAQs: FAQItem[] = [
+  {
+    question: "What is the price of Lavender Blue granite per square foot?",
+    answer: "Lavender Blue granite price ranges from ₹105 to ₹160 per square foot depending on thickness and finish. Non-polished 18mm starts at ₹105/sqft, while Lepatora finish 30mm goes up to ₹160/sqft. A B Minerals is a direct quarry owner, so prices are competitive with no middlemen markup."
+  },
+  {
+    question: "Who is the quarry owner of Lavender Blue granite?",
+    answer: "A B Minerals Pvt Ltd is the quarry owner of Lavender Blue granite, operating a 100-acre reserve in Berhampur, Odisha, India. The company extracts, processes and supplies Lavender Blue granite directly from their own quarry and factory in Chamakhandi, Odisha."
+  },
+  {
+    question: "What finishes are available for Lavender Blue granite?",
+    answer: "Lavender Blue granite is available in 5 finishes: Polished (₹115–₹150/sqft), Non-Polished (₹105–₹140/sqft), Lepatora/Laptro (₹125–₹160/sqft), Honed (₹120–₹150/sqft), and Flamed (₹115–₹150/sqft). All finishes are processed at A B Minerals' own factory."
+  },
+  {
+    question: "What thicknesses are available for Lavender Blue granite slabs?",
+    answer: "Lavender Blue granite is available in 18mm, 20mm, 25mm, and 30mm thickness. Custom thicknesses including 15mm can also be arranged. Available as gang saw slabs (300×150 cm+), block cutter sizes (60–120 cm height), and precision tiles (30×30 to 90×120 cm)."
+  },
+  {
+    question: "Where is Lavender Blue granite quarried?",
+    answer: "Lavender Blue granite is quarried from A B Minerals' own 100-acre reserve near Berhampur, Ganjam district, Odisha, India. The stone is then processed at their factory in Chamakhandi, Odisha, which is equipped with gang saws, multi-cutters, and 12-head line polishing machines."
+  },
+  {
+    question: "Which projects use Lavender Blue granite?",
+    answer: "Lavender Blue granite has been used in major landmark projects including Sharjah International Airport (UAE), Surat Bullet Train Station, SCB Medical College Cuttack, Old Bangalore Airport, and Pune Metro. A B Minerals supplies to architects, builders, and contractors across India and internationally."
+  },
+  {
+    question: "Is Lavender Blue granite good for flooring?",
+    answer: "Yes, Lavender Blue granite is excellent for flooring. Its high durability, low water absorption, and slip-resistant finishes (especially Flamed and Honed) make it ideal for high-traffic areas like airport terminals, metro stations, hospitals, and commercial buildings. It's available in precision tiles from 30×30 cm to 90×120 cm."
+  },
+  {
+    question: "Can I buy Lavender Blue granite directly from the quarry owner?",
+    answer: "Yes. A B Minerals Pvt Ltd sells Lavender Blue granite directly as the quarry owner and manufacturer. Contact them at +91-9811808716 or visit abminerals.com to get a quote. Direct purchase eliminates middlemen and ensures the best price and consistent quality."
+  },
+  {
+    question: "Does A B Minerals export Lavender Blue granite?",
+    answer: "Yes, A B Minerals exports Lavender Blue granite internationally. They have supplied to projects in the UAE (Sharjah Airport) and other countries. Their factory produces export-grade slabs with consistent quality, proper packing, and documentation for international shipping."
+  },
+  {
+    question: "What is the difference between Lavender Blue and Vizag Blue granite?",
+    answer: "Lavender Blue granite has lighter lavender-grey tones with gentle flowing wave patterns, while Vizag/SK Blue typically has deeper blue-grey tones with more dramatic swirling patterns. A B Minerals is the quarry owner of Lavender Blue and also processes Vizag/SK Blue at their Chamakhandi factory."
+  },
+];

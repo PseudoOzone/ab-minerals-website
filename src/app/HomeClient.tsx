@@ -8,7 +8,7 @@ import { Heading, Text, SectionHeader, GoldText } from "@/components/ui/Typograp
 import { AnimatedCounter, RevealOnScroll, AnimatedWords } from "@/components/ui/AnimatedElements";
 import { stones } from "@/config/stones.config";
 import { companyInfo, contactInfo, capabilities, benchmarkProjects, projectDisclaimer } from "@/config/company.config";
-import { generateWhatsAppUrl, messageTemplates } from "@/config/whatsapp.config";
+import { openChatBot } from "@/lib/chatbot-events";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -42,8 +42,7 @@ const staggerContainer: Variants = {
 
 export function HomeClient() {
   const handleRequestQuote = () => {
-    const url = generateWhatsAppUrl(messageTemplates.general);
-    window.open(url, "_blank");
+    openChatBot("quote_start");
   };
 
   return (
@@ -770,7 +769,7 @@ export function HomeClient() {
                     onClick={handleRequestQuote}
                     leftIcon={<MessageCircle className="w-5 h-5" />}
                   >
-                    Request Quote on WhatsApp
+                    Request a Quote
                   </Button>
                 </motion.div>
                 <Link href="/contact">

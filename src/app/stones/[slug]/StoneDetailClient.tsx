@@ -6,7 +6,8 @@ import { Container, Section } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Heading, Text, SectionHeader } from "@/components/ui/Typography";
 import { stones, getStoneBySlug, Stone } from "@/config/stones.config";
-import { generateWhatsAppUrl, messageTemplates } from "@/config/whatsapp.config";
+import { openChatBot } from "@/lib/chatbot-events";
+import { FAQJsonLd, lavenderBlueFAQs, ProductJsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -75,12 +76,26 @@ export function StoneDetailClient({ params }: PageProps) {
   const nextStone = currentIndex < stones.length - 1 ? stones[currentIndex + 1] : null;
 
   const handleRequestQuote = () => {
-    const message = messageTemplates.stoneInquiry(stone.name);
-    window.open(generateWhatsAppUrl(message), "_blank");
+    const stoneStepMap: Record<string, string> = {
+      'lavender-blue': 'quote_stone_lavender',
+      'sk-blue': 'quote_stone_skblue',
+      'ikon-brown': 'quote_stone_ikon',
+      'star-white': 'quote_stone_star',
+    };
+    openChatBot(stoneStepMap[stone.slug] || 'quote_start');
   };
 
   return (
     <>
+      {/* Product JSON-LD Schema for rich search results */}
+      <ProductJsonLd
+        name={`${stone.name} Granite`}
+        description={stone.shortDescription}
+        image={stone.images.hero}
+        sku={stone.id}
+        {...(stone.slug === 'lavender-blue' ? { lowPrice: 105, highPrice: 160 } : {})}
+      />
+
       {/* ═══════════════════════════════════════════════════════════════
           HERO / PRODUCT VIEW
           ═══════════════════════════════════════════════════════════════ */}
@@ -311,7 +326,7 @@ export function StoneDetailClient({ params }: PageProps) {
                   leftIcon={<MessageCircle className="w-5 h-5" />}
                   className="flex-1"
                 >
-                  Get Quote on WhatsApp
+                  Get a Quote
                 </Button>
                 <Button
                   variant="outline"
@@ -323,6 +338,48 @@ export function StoneDetailClient({ params }: PageProps) {
               </motion.div>
             </motion.div>
           </div>
+
+          {/* ═══════════════════════════════════════════════════════════════
+              LAVENDER BLUE FAQ SECTION (SEO Rich Snippets)
+              ═══════════════════════════════════════════════════════════════ */}
+          {stone.slug === 'lavender-blue' && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mt-16 pt-8"
+              style={{ borderTop: '1px solid rgba(245, 245, 240, 0.05)' }}
+            >
+              <FAQJsonLd faqs={lavenderBlueFAQs} />
+              <h2 className="font-serif text-2xl md:text-3xl mb-8" style={{ color: '#F5F5F0' }}>
+                Frequently Asked Questions — Lavender Blue Granite
+              </h2>
+              <div className="space-y-4">
+                {lavenderBlueFAQs.map((faq, i) => (
+                  <details
+                    key={i}
+                    className="group rounded-xl p-1"
+                    style={{
+                      backgroundColor: '#141414',
+                      border: '1px solid rgba(245, 245, 240, 0.05)',
+                    }}
+                  >
+                    <summary
+                      className="flex items-center justify-between cursor-pointer px-5 py-4 text-base md:text-lg font-medium select-none"
+                      style={{ color: '#F5F5F0' }}
+                    >
+                      {faq.question}
+                      <span className="ml-4 shrink-0 text-xl transition-transform group-open:rotate-45" style={{ color: '#C9A962' }}>+</span>
+                    </summary>
+                    <div className="px-5 pb-4 leading-relaxed" style={{ color: '#A0A0A0' }}>
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </motion.div>
+          )}
 
           {/* Navigation between stones */}
           <motion.div 

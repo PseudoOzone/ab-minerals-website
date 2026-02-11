@@ -56,12 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dynamic stone pages
+  // Dynamic stone pages — Lavender Blue gets highest priority
   const stonePages = stones.map((stone) => ({
     url: `${baseUrl}/stones/${stone.slug}`,
     lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
+    changeFrequency: stone.slug === 'lavender-blue' ? 'weekly' as const : 'monthly' as const,
+    priority: stone.slug === 'lavender-blue' ? 0.95 : 0.8,
   }));
 
   return [...staticPages, ...stonePages];

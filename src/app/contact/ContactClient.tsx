@@ -6,7 +6,7 @@ import { Container, Section } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Heading, Text, SectionHeader } from "@/components/ui/Typography";
 import { companyInfo, contactInfo, leadership } from "@/config/company.config";
-import { generateWhatsAppUrl, messageTemplates } from "@/config/whatsapp.config";
+import { openChatBot } from "@/lib/chatbot-events";
 
 // ═══════════════════════════════════════════════════════════════════════
 // ANIMATION VARIANTS
@@ -35,8 +35,7 @@ const staggerContainer = {
 
 export function ContactClient() {
   const handleWhatsApp = () => {
-    const message = messageTemplates.general;
-    window.open(generateWhatsAppUrl(message), "_blank");
+    openChatBot();
   };
 
   return (

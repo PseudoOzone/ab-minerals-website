@@ -21,22 +21,58 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  // Build rich keywords — extra long-tail for Lavender Blue
+  const baseKeywords = [
+    `${stone.name.toLowerCase()} granite`,
+    `${stone.name.toLowerCase()} granite price`,
+    `${stone.name.toLowerCase()} granite supplier`,
+    `${stone.name.toLowerCase()} granite slab`,
+    `${stone.name.toLowerCase()} granite manufacturer`,
+    'granite supplier India',
+    'premium granite',
+  ];
+
+  const lavenderBlueKeywords = stone.slug === 'lavender-blue' ? [
+    'lavender blue granite price per square foot',
+    'lavender blue granite price India',
+    'lavender blue granite quarry owner',
+    'lavender blue granite Odisha',
+    'lavender blue granite supplier',
+    'lavender blue granite manufacturer',
+    'lavender blue granite slab price',
+    'lavender blue granite tiles',
+    'lavender blue granite polished',
+    'lavender blue granite honed',
+    'lavender blue granite flamed',
+    'lavender blue granite lepatora',
+    'lavender blue granite countertop',
+    'lavender blue granite flooring',
+    'lavender blue granite facade',
+    'lavender blue granite airport',
+    'lavender blue granite exporters India',
+    'blue granite India price',
+    'best lavender blue granite',
+    'cheapest lavender blue granite',
+    'lavender blue granite factory',
+    'lavender blue granite direct from quarry',
+    'buy lavender blue granite online',
+    'lavender blue granite near me',
+    'lavender blue granite wholesale',
+  ] : [];
+
+  const keywords = [...baseKeywords, ...lavenderBlueKeywords];
+
   return {
     title: stone.metaTitle || stone.name,
     description: stone.metaDescription || stone.shortDescription,
-    keywords: [
-      `${stone.name.toLowerCase()} granite`,
-      `${stone.name.toLowerCase()} granite price`,
-      `${stone.name.toLowerCase()} granite supplier`,
-      `${stone.name.toLowerCase()} granite slab`,
-      'granite supplier India',
-      'premium granite',
-    ],
+    keywords,
     alternates: {
       canonical: `https://www.abminerals.com/stones/${stone.slug}`,
     },
     openGraph: {
-      title: `${stone.name} Granite | A B Minerals`,
+      title: stone.slug === 'lavender-blue'
+        ? 'Lavender Blue Granite ₹105–160/sqft | Quarry Owner — A B Minerals'
+        : `${stone.name} Granite | A B Minerals`,
       description: stone.shortDescription,
       url: `https://www.abminerals.com/stones/${stone.slug}`,
       images: stone.images.hero ? [
@@ -44,7 +80,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
           url: stone.images.hero,
           width: 1200,
           height: 630,
-          alt: `${stone.name} granite slab`,
+          alt: stone.slug === 'lavender-blue'
+            ? 'Lavender Blue granite slab — polished finish by A B Minerals quarry owner Odisha'
+            : `${stone.name} granite slab`,
         },
       ] : undefined,
     },

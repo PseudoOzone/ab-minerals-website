@@ -7,7 +7,8 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Heading, Text } from "@/components/ui/Typography";
 import { AnimatedCounter, RevealOnScroll, AnimatedWords } from "@/components/ui/AnimatedElements";
-import { generateWhatsAppUrl, messageTemplates, getFactoryManager, generateWhatsAppUrlForContact } from "@/config/whatsapp.config";
+import { getFactoryManager } from "@/config/whatsapp.config";
+import { openChatBot } from "@/lib/chatbot-events";
 import { contactInfo } from "@/config/company.config";
 import Link from "next/link";
 
@@ -107,8 +108,7 @@ export function FactoryClient() {
   const factoryManager = getFactoryManager();
 
   const handleQuote = () => {
-    const url = generateWhatsAppUrl(messageTemplates.general);
-    window.open(url, "_blank");
+    openChatBot("quote_start");
   };
 
   return (
@@ -549,7 +549,7 @@ export function FactoryClient() {
                 style={{ color: 'rgba(245, 245, 240, 0.7)' }}
               >
                 Our factory team will guide you on the best specifications for your project. 
-                Get a quote within hours on WhatsApp.
+                Get a quote within hours.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
