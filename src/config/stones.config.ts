@@ -96,8 +96,8 @@ export const stones: Stone[] = [
     inStock: true,
     fromOwnQuarry: true, // Our exclusive quarry in Odisha
     
-    metaTitle: "Lavender Blue Granite Price ₹105–160/sqft | Quarry Owner Direct — A B Minerals",
-    metaDescription: "Buy Lavender Blue granite slabs direct from quarry owner A B Minerals Pvt Ltd, Odisha. Price ₹105–160/sqft. Polished, honed, flamed, lepatora finishes. 18mm–30mm slabs & tiles. Used in Sharjah Airport, Surat Bullet Train. Factory-finished, pan-India delivery & export.",
+    metaTitle: "Lavender Blue Granite Best Price ₹105/sqft — Quarry Owner Direct | A B Minerals",
+    metaDescription: "Best Lavender Blue granite price in India — ₹105 to ₹160/sqft direct from quarry owner. No middlemen, no markup. A B Minerals Pvt Ltd, Odisha. Polished, honed, flamed, lepatora. 18mm–30mm slabs & tiles. Sharjah Airport, Surat Bullet Train supplier. Pan-India & export.",
   },
   {
     id: "sk-blue",

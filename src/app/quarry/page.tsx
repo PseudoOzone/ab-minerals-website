@@ -3,7 +3,7 @@ import { QuarryClient } from './QuarryClient';
 
 export const metadata: Metadata = {
   title: 'Lavender Blue Granite Quarry Owner — 100 Acres, Berhampur Odisha | A B Minerals',
-  description: 'A B Minerals owns a 100-acre Lavender Blue granite quarry in Berhampur, Odisha. Direct quarry-to-factory supply — no middlemen. Best Lavender Blue granite price in India. Consistent blue-grey wave pattern, large block extraction.',
+  description: 'A B Minerals owns a 100-acre Lavender Blue granite quarry in Berhampur, Odisha. Direct quarry-to-factory = best price guaranteed, no middlemen. Lavender Blue from ₹105/sqft. Consistent blue-grey wave pattern, large block extraction. Visit our quarry.',
   keywords: [
     'lavender blue granite quarry',
     'lavender blue granite quarry owner',

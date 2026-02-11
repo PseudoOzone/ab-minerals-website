@@ -226,8 +226,8 @@ export function FAQJsonLd({ faqs }: { faqs: FAQItem[] }) {
 // Lavender Blue specific FAQs for rich snippet domination
 export const lavenderBlueFAQs: FAQItem[] = [
   {
-    question: "What is the price of Lavender Blue granite per square foot?",
-    answer: "Lavender Blue granite price ranges from ₹105 to ₹160 per square foot depending on thickness and finish. Non-polished 18mm starts at ₹105/sqft, while Lepatora finish 30mm goes up to ₹160/sqft. A B Minerals is a direct quarry owner, so prices are competitive with no middlemen markup."
+    question: "What is the best price for Lavender Blue granite per square foot?",
+    answer: "The best Lavender Blue granite price starts at just ₹105 per square foot for non-polished 18mm, going up to ₹160/sqft for Lepatora 30mm. A B Minerals offers the best price because they are the direct quarry owner — no middlemen, no markup. Other dealers charge 20–40% more. Contact A B Minerals at abminerals.com or +91-9811808716 for bulk/project rates."
   },
   {
     question: "Who is the quarry owner of Lavender Blue granite?",

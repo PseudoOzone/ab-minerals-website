@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { StonesClient } from './StonesClient';
 
 export const metadata: Metadata = {
-  title: 'Granite Collection — Lavender Blue, SK Blue, Ikon Brown, Star White | A B Minerals',
-  description: 'Browse premium granite from quarry owner A B Minerals — Lavender Blue granite from ₹105/sqft (own quarry), Vizag/SK Blue, Ikon Brown, Star White. Factory-finished slabs, tiles & custom cuts. Polished, honed, lepatora, flamed finishes. Pan-India delivery & export.',
+  title: 'Granite Best Prices — Lavender Blue ₹105/sqft, SK Blue, Ikon Brown, Star White | A B Minerals',
+  description: 'Best granite prices in India — Lavender Blue from ₹105/sqft direct from quarry owner. No middlemen. Also Vizag/SK Blue, Ikon Brown, Star White. Factory-finished slabs, tiles & custom cuts. All finishes. Pan-India delivery & export.',
   keywords: [
     'granite slabs India',
     'lavender blue granite',

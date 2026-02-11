@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       title: stone.slug === 'lavender-blue'
-        ? 'Lavender Blue Granite ₹105–160/sqft | Quarry Owner — A B Minerals'
+        ? 'Lavender Blue Granite Best Price ₹105/sqft — Quarry Owner Direct | A B Minerals'
         : `${stone.name} Granite | A B Minerals`,
       description: stone.shortDescription,
       url: `https://www.abminerals.com/stones/${stone.slug}`,

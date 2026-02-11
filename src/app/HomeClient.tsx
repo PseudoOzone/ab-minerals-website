@@ -103,21 +103,21 @@ export function HomeClient() {
               {/* Headline */}
               <motion.div variants={fadeInUp} className="text-center">
                 <h1 className="font-serif font-medium tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4 sm:mb-6">
-                  <span style={{ color: '#B8860B' }}>Lavender Blue Quarry-Owner.</span>
+                  <span style={{ color: '#B8860B' }}>Lavender Blue from ₹105/sqft.</span>
                   <br />
-                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Factory-Finished.</span>
+                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Direct from Quarry Owner.</span>
                   <br />
-                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Premium Granite Slabs.</span>
+                  <span className="text-[#e0e0e0] sm:text-[#1a1a2e]">Best Price — No Middlemen.</span>
                 </h1>
               </motion.div>
 
               {/* Subtext */}
               <motion.div variants={fadeInUp} className="text-center">
                 <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-10 max-w-xl mx-auto font-medium text-[#e0e0e0] sm:text-[#2d2d44]">
-                  Lavender Blue Quarry-Owner + polished to perfection, delivered to project sites across India.
+                  Quarry-owner price advantage — no middlemen, no markup. Factory-finished granite delivered to your project site.
                   <br className="hidden sm:block" />
-                  <span className="hidden sm:inline">Pan-India dispatch • Export-ready • Quote in minutes on WhatsApp</span>
-                  <span className="sm:hidden">Pan-India • Export-ready</span>
+                  <span className="hidden sm:inline">Best price guaranteed • Pan-India dispatch • Export-ready • Quote in minutes</span>
+                  <span className="sm:hidden">Best price • Pan-India • Export-ready</span>
                 </p>
               </motion.div>
 
@@ -478,23 +478,23 @@ export function HomeClient() {
             {[
               {
                 icon: <Sparkles className="w-6 h-6" />,
-                title: "Own Quarry",
-                description: "100-acre Lavender Blue quarry + factory processing for variety stones."
+                title: "Best Price — Direct",
+                description: "Own 100-acre quarry + own factory = no middlemen. You get the best Lavender Blue granite price in India, starting ₹105/sqft."
               },
               {
                 icon: <Factory className="w-6 h-6" />,
                 title: "In-House Processing",
-                description: "State-of-the-art factory with 250,000+ sqft monthly capacity for any scale."
+                description: "State-of-the-art factory: gang saws, multi-cutters & 12-head polishers. 250,000+ sqft monthly — any scale, any finish."
               },
               {
                 icon: <Shield className="w-6 h-6" />,
                 title: "Quality Assurance",
-                description: "Rigorous quality control at every stage from extraction to final finish."
+                description: "Quarry-to-delivery quality control. Consistent colour, finish & thickness — trusted by airports & metro projects."
               },
               {
                 icon: <Truck className="w-6 h-6" />,
-                title: "Pan-India Delivery",
-                description: "Efficient logistics network ensuring timely delivery across India."
+                title: "Pan-India & Export",
+                description: "Efficient logistics across India + export-ready packing. Sharjah Airport, Surat Bullet Train — we deliver worldwide."
               }
             ].map((item, index) => (
               <RevealOnScroll key={index} delay={index * 0.1}>
