@@ -415,12 +415,6 @@ export function AboutClient() {
                   <span className="px-4 py-2 rounded-full text-sm" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}>
                     BIS Standard IS: 1121
                   </span>
-                  <span className="px-4 py-2 rounded-full text-sm" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}>
-                    IDCO Registered
-                  </span>
-                  <span className="px-4 py-2 rounded-full text-sm" style={{ backgroundColor: 'rgba(201, 169, 98, 0.1)', color: '#C9A962' }}>
-                    MES Approved (CE-Navy)
-                  </span>
                 </div>
 
                 {/* Lab Info */}
