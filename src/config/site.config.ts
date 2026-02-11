@@ -64,7 +64,7 @@ export const siteConfig = {
 export const analyticsConfig = {
   // Google Analytics
   googleAnalytics: {
-    measurementId: "G-XXXXXXXXXX",     // ← PLACEHOLDER: Add GA4 measurement ID
+    measurementId: "G-07WZX52CPJ",
   },
   
   // Facebook Pixel
