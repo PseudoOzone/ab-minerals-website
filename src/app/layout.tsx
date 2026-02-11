@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { FloatingWhatsApp } from "@/components/ui/WhatsAppButton";
+import { SmartChatBot } from "@/components/ui/ChatBot";
 import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { GoogleAnalytics, MicrosoftClarity } from "@/components/seo/GoogleAnalytics";
 import { seoDefaults, companyInfo } from "@/config";
@@ -90,7 +90,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <FloatingWhatsApp />
+        <SmartChatBot />
       </body>
     </html>
   );
