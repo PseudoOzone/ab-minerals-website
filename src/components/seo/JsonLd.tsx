@@ -7,12 +7,17 @@ export function OrganizationJsonLd() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://www.abminerals.com/#organization',
     name: companyInfo.name,
     legalName: companyInfo.legalName,
     url: 'https://www.abminerals.com',
     logo: 'https://www.abminerals.com/logo-abm.png',
     description: companyInfo.description,
     foundingDate: companyInfo.foundedYear.toString(),
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      minValue: 50,
+    },
     address: {
       '@type': 'PostalAddress',
       streetAddress: contactInfo.address.line1,
@@ -48,13 +53,19 @@ export function OrganizationJsonLd() {
 export function LocalBusinessJsonLd() {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': 'https://www.abminerals.com',
+    '@type': ['LocalBusiness', 'MiningBusiness'],
+    '@id': 'https://www.abminerals.com/#local-business',
     name: companyInfo.name,
     image: 'https://www.abminerals.com/logo-abm.png',
     url: 'https://www.abminerals.com',
     telephone: contactInfo.phone.primary,
     email: contactInfo.email.primary,
+    description: 'Premium granite manufacturer and quarry owner in Odisha, India. Lavender Blue, SK Blue, Ikon Brown, Star White granite slabs and tiles.',
+    areaServed: [
+      { '@type': 'Country', name: 'India' },
+      { '@type': 'Country', name: 'United Arab Emirates' },
+    ],
+    knowsAbout: ['granite', 'Lavender Blue granite', 'granite quarrying', 'granite processing', 'stone fabrication'],
     address: {
       '@type': 'PostalAddress',
       streetAddress: contactInfo.address.line1,
@@ -178,6 +189,7 @@ export function WebSiteJsonLd() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://www.abminerals.com/#website',
     name: seoDefaults.siteName,
     url: 'https://www.abminerals.com',
     description: seoDefaults.defaultDescription,
