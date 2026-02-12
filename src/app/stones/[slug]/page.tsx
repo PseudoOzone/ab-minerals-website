@@ -71,9 +71,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       title: stone.slug === 'lavender-blue'
-        ? 'Lavender Blue Granite Best Price ₹105/sqft — Quarry Owner Direct | A B Minerals'
-        : `${stone.name} Granite | A B Minerals`,
-      description: stone.shortDescription,
+        ? 'Lavender Blue Granite — ₹105/sqft Direct from Quarry Owner | A B Minerals'
+        : `${stone.name} Granite | A B Minerals Pvt Ltd`,
+      description: stone.slug === 'lavender-blue'
+        ? 'Lavender Blue granite from ₹105/sqft — direct from quarry owner A B Minerals. No middlemen. Polished, honed, flamed, lepatora. Pan-India & export.'
+        : stone.shortDescription,
       url: `https://www.abminerals.com/stones/${stone.slug}`,
       images: stone.images.hero ? [
         {

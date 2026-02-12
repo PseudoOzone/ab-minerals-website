@@ -220,7 +220,7 @@ export function StoneDetailClient({ params }: PageProps) {
               {/* Title */}
               <motion.div variants={fadeInUp}>
                 <Heading as="h1" size="display-md" className="mb-4">
-                  {stone.name}
+                  {stone.name} Granite
                 </Heading>
               </motion.div>
 

@@ -2,19 +2,20 @@ import type { Metadata } from 'next';
 import { HomeClient } from './HomeClient';
 
 export const metadata: Metadata = {
-  title: 'A B Minerals Pvt Ltd | Premium Granite Manufacturer & Quarry Owner in Odisha',
-  description: 'A B Minerals Pvt Ltd — premium granite manufacturer in Odisha with own Lavender Blue quarry. Factory-finished slabs & tiles from ₹105/sqft. SK Blue, Ikon Brown, Star White. Pan-India & export.',
+  title: 'A B Minerals — Lavender Blue Granite Quarry Owner | ₹105/sqft Direct, Odisha',
+  description: 'A B Minerals — Lavender Blue granite quarry owner in Odisha. Best price ₹105/sqft direct from mine. Factory-finished slabs, tiles & custom cuts. No middlemen. Pan-India delivery & export.',
   keywords: [
     'A B Minerals',
     'A B Minerals Pvt Ltd',
     'AB Minerals',
-    'granite manufacturer Odisha',
     'lavender blue granite',
+    'lavender blue',
     'lavender blue granite price',
     'lavender blue granite quarry owner',
+    'lavender blue granite supplier',
+    'lavender blue granite manufacturer',
+    'granite manufacturer Odisha',
     'granite supplier India',
-    'premium granite slabs',
-    'granite factory Odisha',
     'blue granite India',
     'granite exporter India',
   ],
@@ -22,8 +23,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.abminerals.com',
   },
   openGraph: {
-    title: 'A B Minerals Pvt Ltd | Premium Granite Manufacturer & Quarry Owner in Odisha',
-    description: 'Own quarry, own factory, no middlemen. Lavender Blue granite from ₹105/sqft. Direct supply to architects, builders & contractors across India.',
+    title: 'A B Minerals — Lavender Blue Granite Quarry Owner | Best Price Direct',
+    description: 'Lavender Blue granite from ₹105/sqft — direct from quarry owner A B Minerals. Own quarry, own factory, no middlemen. Pan-India & export.',
     url: 'https://www.abminerals.com',
     siteName: 'A B Minerals Pvt Ltd',
   },

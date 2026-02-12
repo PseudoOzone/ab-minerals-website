@@ -110,6 +110,7 @@ interface ProductJsonLdProps {
 
 export function ProductJsonLd({ name, description, image, sku, lowPrice, highPrice }: ProductJsonLdProps) {
   const hasPrice = lowPrice && highPrice;
+  const isLavenderBlue = sku === 'lavender-blue';
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -117,6 +118,24 @@ export function ProductJsonLd({ name, description, image, sku, lowPrice, highPri
     description: description,
     image: `https://www.abminerals.com${image}`,
     sku: sku,
+    ...(isLavenderBlue && {
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': 'https://www.abminerals.com/stones/lavender-blue',
+      },
+      material: 'Granite',
+      color: 'Lavender Blue',
+      countryOfOrigin: {
+        '@type': 'Country',
+        name: 'India',
+      },
+      additionalProperty: [
+        { '@type': 'PropertyValue', name: 'Origin', value: 'Berhampur, Odisha, India' },
+        { '@type': 'PropertyValue', name: 'Quarry Size', value: '100 acres' },
+        { '@type': 'PropertyValue', name: 'Thicknesses', value: '18mm, 20mm, 25mm, 30mm' },
+        { '@type': 'PropertyValue', name: 'Finishes', value: 'Polished, Honed, Flamed, Lepatora' },
+      ],
+    }),
     brand: {
       '@type': 'Brand',
       name: companyInfo.name,
@@ -278,3 +297,35 @@ export const lavenderBlueFAQs: FAQItem[] = [
     answer: "Lavender Blue granite has lighter lavender-grey tones with gentle flowing wave patterns, while Vizag/SK Blue typically has deeper blue-grey tones with more dramatic swirling patterns. A B Minerals is the quarry owner of Lavender Blue and also processes Vizag/SK Blue at their Chamakhandi factory."
   },
 ];
+
+// ItemList Schema for stone collection pages (boosts Lavender Blue as top item)
+interface StoneListItem {
+  name: string;
+  url: string;
+  image: string;
+  position: number;
+}
+
+export function StoneItemListJsonLd({ items }: { items: StoneListItem[] }) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Granite Collection by A B Minerals',
+    description: 'Premium granite varieties available from A B Minerals — Lavender Blue, SK Blue, Ikon Brown, Star White.',
+    numberOfItems: items.length,
+    itemListElement: items.map((item) => ({
+      '@type': 'ListItem',
+      position: item.position,
+      name: item.name,
+      url: item.url,
+      image: `https://www.abminerals.com${item.image}`,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}

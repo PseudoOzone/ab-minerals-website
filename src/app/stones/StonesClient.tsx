@@ -6,6 +6,7 @@ import { Container, Section } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Heading, Text, SectionHeader } from "@/components/ui/Typography";
 import { stones } from "@/config/stones.config";
+import { StoneItemListJsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -40,6 +41,16 @@ export function StonesClient() {
 
   return (
     <>
+      {/* Stone Collection ItemList Schema for rich search results */}
+      <StoneItemListJsonLd
+        items={stones.map((stone, idx) => ({
+          name: `${stone.name} Granite`,
+          url: `https://www.abminerals.com/stones/${stone.slug}`,
+          image: stone.images.hero,
+          position: idx + 1,
+        }))}
+      />
+
       {/* Hero Section */}
       <section 
         className="relative pt-32 pb-16"
