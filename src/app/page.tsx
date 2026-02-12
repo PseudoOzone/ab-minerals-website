@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import { HomeClient } from './HomeClient';
 
 export const metadata: Metadata = {
-  title: 'A B Minerals — Lavender Blue Granite Quarry Owner | Lowest Price Direct, Odisha',
-  description: 'A B Minerals — Lavender Blue granite quarry owner in Odisha. Lowest price guaranteed, direct from mine. Factory-finished slabs, tiles & custom cuts. No middlemen. Pan-India delivery & export.',
+  title: 'A B Minerals Pvt Ltd — Lavender Blue Granite Quarry Owner',
+  description: 'A B Minerals Pvt Ltd is the quarry owner of Lavender Blue granite in Odisha, India. Own 100-acre mine, own factory — direct supply, best price, no middlemen. Factory-finished slabs, tiles & custom cuts. Pan-India delivery & export.',
   keywords: [
     'A B Minerals',
     'A B Minerals Pvt Ltd',
     'AB Minerals',
+    'ABM',
     'lavender blue granite',
     'lavender blue',
     'lavender blue granite price',
@@ -23,8 +24,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.abminerals.com',
   },
   openGraph: {
-    title: 'A B Minerals — Lavender Blue Granite Quarry Owner | Best Price Direct',
-    description: 'Lavender Blue granite at lowest price — direct from quarry owner A B Minerals. Own quarry, own factory, no middlemen. Pan-India & export.',
+    title: 'A B Minerals Pvt Ltd — Lavender Blue Granite Quarry Owner & Manufacturer',
+    description: 'A B Minerals is the quarry owner of Lavender Blue granite in Odisha. Own quarry, own factory, no middlemen. Pan-India delivery & export.',
     url: 'https://www.abminerals.com',
     siteName: 'A B Minerals Pvt Ltd',
   },

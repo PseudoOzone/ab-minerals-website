@@ -9,6 +9,7 @@ export function OrganizationJsonLd() {
     '@type': 'Organization',
     '@id': 'https://www.abminerals.com/#organization',
     name: companyInfo.name,
+    alternateName: ['AB Minerals', 'A B Minerals', 'ABM', 'AB Minerals Pvt Ltd'],
     legalName: companyInfo.legalName,
     url: 'https://www.abminerals.com',
     logo: 'https://www.abminerals.com/logo-abm.png',
@@ -37,7 +38,7 @@ export function OrganizationJsonLd() {
     ],
     email: contactInfo.email.primary,
     sameAs: [
-      // Add social media URLs when available
+      'https://maps.app.goo.gl/i8YRib6VGsY4743Q7',
     ],
   };
 
@@ -56,6 +57,7 @@ export function LocalBusinessJsonLd() {
     '@type': ['LocalBusiness', 'MiningBusiness'],
     '@id': 'https://www.abminerals.com/#local-business',
     name: companyInfo.name,
+    alternateName: ['AB Minerals', 'A B Minerals', 'ABM'],
     image: 'https://www.abminerals.com/logo-abm.png',
     url: 'https://www.abminerals.com',
     telephone: contactInfo.phone.primary,
@@ -210,11 +212,12 @@ export function WebSiteJsonLd() {
     '@type': 'WebSite',
     '@id': 'https://www.abminerals.com/#website',
     name: seoDefaults.siteName,
+    alternateName: ['AB Minerals', 'A B Minerals', 'ABM'],
     url: 'https://www.abminerals.com',
+    inLanguage: 'en-IN',
     description: seoDefaults.defaultDescription,
     publisher: {
-      '@type': 'Organization',
-      name: companyInfo.name,
+      '@id': 'https://www.abminerals.com/#organization',
     },
   };
 
