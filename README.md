@@ -108,3 +108,48 @@ See [PLACEHOLDERS.md](./PLACEHOLDERS.md) for all content that needs updating.
 ## 📄 License
 
 Private - A B Minerals © 2024
+
+---
+
+## 🔍 SEO Checklist & Verification
+
+### Quick Checks (after deployment)
+
+| Check | How to verify |
+|-------|---------------|
+| **Indexing** | Google: `site:abminerals.com` — all pages should appear |
+| **robots.txt** | Visit `https://www.abminerals.com/robots.txt` — should allow `/`, disallow `/api/`, link sitemap |
+| **Sitemap** | Visit `https://www.abminerals.com/sitemap.xml` — all pages with correct URLs |
+| **Canonical URLs** | View page source → look for `<link rel="canonical" href="https://www.abminerals.com/...">` |
+| **Structured Data** | Paste URL into [Google Rich Results Test](https://search.google.com/test/rich-results) |
+| **OG Tags** | Paste URL into [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) |
+| **Mobile** | Run [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly) |
+| **Page Speed** | Run [PageSpeed Insights](https://pagespeed.web.dev/) for Core Web Vitals |
+
+### Google Search Console Setup
+
+1. Go to [Google Search Console](https://search.google.com/search-console)
+2. Add property: `https://www.abminerals.com`
+3. Verify via DNS TXT record or HTML file upload
+4. Submit sitemap: `https://www.abminerals.com/sitemap.xml`
+5. Monitor Coverage → fix any errors
+
+### SEO Architecture Summary
+
+| File | Purpose |
+|------|---------|
+| `src/app/robots.ts` | Generates `/robots.txt` — crawl rules + sitemap link |
+| `src/app/sitemap.ts` | Generates `/sitemap.xml` — all pages with priorities |
+| `src/app/layout.tsx` | Root metadata (title template, OG defaults, icons) |
+| `src/app/*/page.tsx` | Per-page title, description, canonical, OG overrides |
+| `src/components/seo/JsonLd.tsx` | Organization, LocalBusiness, WebSite, Product, FAQ schemas |
+| `src/config/company.config.ts` | Company info, contacts, SEO defaults (single source of truth) |
+
+### Local build verification
+
+```bash
+npm run build          # Ensure clean build with no errors
+npm run start          # Start prod server, then check:
+# http://localhost:3000/robots.txt   → should render rules
+# http://localhost:3000/sitemap.xml  → should list all pages
+```
