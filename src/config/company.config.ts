@@ -306,8 +306,8 @@ export const capabilities = [
 export const seoDefaults = {
   siteName: "A B Minerals Pvt Ltd",
   titleTemplate: "%s | A B Minerals Pvt Ltd",
-  defaultTitle: "A B Minerals Pvt Ltd | Premium Granite Slabs | Lavender Blue Quarry-Owner, Factory-Finished",
-  defaultDescription: "Premium granite slabs from A B Minerals Pvt Ltd. Lavender Blue Quarry-Owner, factory-finished granite for architects, builders, and contractors. Lavender Blue, SK Blue, Ikon Brown, Star White. Pan-India delivery.",
+  defaultTitle: "A B Minerals Pvt Ltd | Premium Granite Manufacturer & Quarry Owner in Odisha",
+  defaultDescription: "A B Minerals Pvt Ltd — premium granite manufacturer in Odisha with own Lavender Blue quarry. Factory-finished slabs, tiles & custom cuts. Pan-India delivery & export.",
   keywords: [
     "granite slabs",
     "premium granite",

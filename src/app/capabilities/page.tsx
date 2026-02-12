@@ -2,15 +2,15 @@ import type { Metadata } from 'next';
 import { CapabilitiesClient } from './CapabilitiesClient';
 
 export const metadata: Metadata = {
-  title: 'Our Capabilities',
-  description: 'A B Minerals capabilities — own quarry extraction, gang saw & block cutter processing, precision polishing, custom sizing, quality control, and pan-India dispatch. Export-ready granite solutions.',
-  keywords: ['granite processing capabilities', 'granite cutting services', 'granite polishing India', 'custom granite sizes', 'granite export services'],
+  title: 'Processing Capabilities | A B Minerals Pvt Ltd',
+  description: 'A B Minerals capabilities — quarry extraction, gang saw & block cutter processing, precision polishing, custom sizing & pan-India dispatch. Export-ready granite from Odisha.',
+  keywords: ['A B Minerals capabilities', 'granite processing India', 'granite cutting services Odisha', 'custom granite sizes', 'granite export services'],
   alternates: {
     canonical: 'https://www.abminerals.com/capabilities',
   },
   openGraph: {
-    title: 'Our Capabilities | A B Minerals',
-    description: 'Full-service granite: quarry extraction, factory processing, quality control & dispatch.',
+    title: 'Processing Capabilities | A B Minerals Pvt Ltd',
+    description: 'Full-service granite: quarry extraction, factory processing, quality control & dispatch from Odisha.',
     url: 'https://www.abminerals.com/capabilities',
   },
 };

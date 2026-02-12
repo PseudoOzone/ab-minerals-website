@@ -32,10 +32,10 @@ export const whatsappNumbers: WhatsAppNumber[] = [
   },
   {
     id: "operations",
-    name: "Operations",
-    number: "+919437073030", // Operations line
+    name: "Anant Bakshi",
+    number: "+919777718672", // Anant Bakshi
     isPrimary: false,
-    description: "Operations & Order Tracking",
+    description: "Operations & Business Development",
   },
   {
     id: "factory",
