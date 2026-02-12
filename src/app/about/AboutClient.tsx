@@ -230,35 +230,48 @@ export function AboutClient() {
 
             <motion.div 
               variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto"
             >
               {leadership.map((person) => (
                 <motion.div
                   key={person.id}
                   variants={fadeInUp}
-                  className="text-center"
+                  className="text-center p-6 rounded-xl"
+                  style={{
+                    backgroundColor: '#141414',
+                    border: '1px solid rgba(245, 245, 240, 0.05)',
+                  }}
                 >
                   <div 
-                    className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden"
+                    className="w-36 h-36 mx-auto mb-5 rounded-full overflow-hidden relative"
                     style={{ 
                       backgroundColor: '#0A0A0A',
-                      border: '2px solid rgba(201, 169, 98, 0.3)'
+                      border: '3px solid rgba(201, 169, 98, 0.3)'
                     }}
                   >
-                    {/* Leader photo placeholder */}
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Users className="w-12 h-12" style={{ color: 'rgba(201, 169, 98, 0.3)' }} />
-                    </div>
+                    {person.image ? (
+                      <Image
+                        src={person.image}
+                        alt={person.name}
+                        fill
+                        sizes="144px"
+                        className="object-cover object-top"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Users className="w-12 h-12" style={{ color: 'rgba(201, 169, 98, 0.3)' }} />
+                      </div>
+                    )}
                   </div>
                   <h3 className="font-serif text-xl mb-1" style={{ color: '#F5F5F0' }}>
                     {person.name}
                   </h3>
-                  <p className="text-sm mb-2" style={{ color: '#C9A962' }}>
+                  <p className="text-sm mb-3" style={{ color: '#C9A962' }}>
                     {person.role}
                   </p>
-                  <Text size="sm" muted>
-                    {person.bio}
-                  </Text>
+                  <p className="text-sm leading-relaxed" style={{ color: '#A0A0A0' }}>
+                    {person.shortBio}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>

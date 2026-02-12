@@ -561,7 +561,7 @@ export function SmartChatBot() {
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 3, duration: 0.3 }}
-              className="absolute bottom-20 right-0 px-4 py-2.5 rounded-xl shadow-lg max-w-[220px] cursor-pointer"
+              className="absolute bottom-20 right-0 px-4 py-3 rounded-xl shadow-lg min-w-[280px] max-w-[320px] cursor-pointer"
               style={{
                 backgroundColor: '#1A1A1A',
                 border: '1px solid rgba(201, 169, 98, 0.2)',
@@ -569,7 +569,7 @@ export function SmartChatBot() {
               }}
               onClick={handleOpen}
             >
-              <p className="text-xs leading-relaxed">
+              <p className="text-sm leading-relaxed">
                 👋 Need help choosing granite or want a quote? Chat with us!
               </p>
               <div 
