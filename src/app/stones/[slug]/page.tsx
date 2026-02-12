@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   ];
 
   const lavenderBlueKeywords = stone.slug === 'lavender-blue' ? [
+    // Correct spellings — long-tail
     'lavender blue granite price per square foot',
     'lavender blue granite price India',
     'lavender blue granite quarry owner',
@@ -58,6 +59,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     'buy lavender blue granite online',
     'lavender blue granite near me',
     'lavender blue granite wholesale',
+    // Common misspellings
+    'lavendar blue granite', 'lavendar blue granite price',
+    'lavander blue granite', 'lavander blue granite price',
+    'lavender blu granite', 'lavendor blue granite',
+    'lavnder blue granite', 'lavender blue granit',
+    'lavendar blue granit', 'lavander blue',
+    'lavendar blue', 'lavendar blue granite supplier',
+    'lavander blue granite supplier',
+    'lavendar blue granite quarry owner',
   ] : [];
 
   const keywords = [...baseKeywords, ...lavenderBlueKeywords];
