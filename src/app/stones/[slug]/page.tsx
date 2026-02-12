@@ -71,10 +71,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     openGraph: {
       title: stone.slug === 'lavender-blue'
-        ? 'Lavender Blue Granite — ₹105/sqft Direct from Quarry Owner | A B Minerals'
+        ? 'Lavender Blue Granite — Lowest Price Direct from Quarry Owner | A B Minerals'
         : `${stone.name} Granite | A B Minerals Pvt Ltd`,
       description: stone.slug === 'lavender-blue'
-        ? 'Lavender Blue granite from ₹105/sqft — direct from quarry owner A B Minerals. No middlemen. Polished, honed, flamed, lepatora. Pan-India & export.'
+        ? 'Lavender Blue granite at lowest price — direct from quarry owner A B Minerals. No middlemen. Polished, honed, flamed, lepatora. Pan-India & export.'
         : stone.shortDescription,
       url: `https://www.abminerals.com/stones/${stone.slug}`,
       images: stone.images.hero ? [

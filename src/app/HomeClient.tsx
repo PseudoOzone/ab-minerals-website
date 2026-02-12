@@ -479,7 +479,7 @@ export function HomeClient() {
               {
                 icon: <Sparkles className="w-6 h-6" />,
                 title: "Best Price — Direct",
-                description: "Own 100-acre quarry + own factory = no middlemen. You get the best Lavender Blue granite price in India, starting ₹105/sqft."
+                description: "Own 100-acre quarry + own factory = no middlemen. You get the lowest Lavender Blue granite price in India — guaranteed."
               },
               {
                 icon: <Factory className="w-6 h-6" />,

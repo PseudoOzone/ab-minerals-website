@@ -3,7 +3,7 @@ import { StonesClient } from './StonesClient';
 
 export const metadata: Metadata = {
   title: 'Granite Products | A B Minerals Pvt Ltd',
-  description: 'A B Minerals granite collection — Lavender Blue from ₹105/sqft (quarry-owner direct), SK Blue, Ikon Brown, Star White. Factory-finished slabs, tiles & custom cuts from Odisha.',
+  description: 'A B Minerals granite collection — Lavender Blue at lowest price (quarry-owner direct), SK Blue, Ikon Brown, Star White. Factory-finished slabs, tiles & custom cuts from Odisha.',
   keywords: [
     'A B Minerals granite',
     'A B Minerals Pvt Ltd',
