@@ -333,6 +333,6 @@ export const seoDefaults = {
     "granite export",
     "granite slabs wholesale",
   ],
-  ogImage: "/logo-abm.png",
+  ogImage: "/og-image.jpg",
   twitterHandle: "",                   // ← PLACEHOLDER: Add Twitter handle
 };
