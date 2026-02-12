@@ -7,8 +7,8 @@
  */
 
 export const siteConfig = {
-  // Site URL
-  url: "https://abminerals.com",
+  // Site URL (canonical — always use www)
+  url: "https://www.abminerals.com",
   
   // Feature flags
   features: {
