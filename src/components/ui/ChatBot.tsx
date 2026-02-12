@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, ArrowLeft, RotateCcw } from "lucide-react";
 import { chatSteps, ChatContext, buildWhatsAppMessage } from "@/config/chatbot.config";
-import { generateWhatsAppUrl, generateWhatsAppUrlForContact } from "@/config/whatsapp.config";
+import { generateWhatsAppUrl, generateWhatsAppUrlForContact, whatsappNumbers } from "@/config/whatsapp.config";
 import { onChatBotOpen } from "@/lib/chatbot-events";
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -271,35 +271,46 @@ export function SmartChatBot() {
 
   // Handle WhatsApp transfer
   const handleTransfer = (ctx: ChatContext, stepId?: string | null) => {
-    let url: string;
+    let message: string;
     
     if (stepId === "track_transfer") {
-      // Order tracking → factory manager
-      const message = buildWhatsAppMessage(ctx, "track");
-      url = generateWhatsAppUrlForContact("factory", message);
+      // Order tracking → factory manager only
+      message = buildWhatsAppMessage(ctx, "track");
+      const url = generateWhatsAppUrlForContact("factory", message);
+      window.open(url, "_blank");
     } else if (stepId === "visit_transfer") {
-      // Visit → primary
-      const message = buildWhatsAppMessage(ctx, "visit");
-      url = generateWhatsAppUrl(message);
+      // Visit → all numbers
+      message = buildWhatsAppMessage(ctx, "visit");
+      whatsappNumbers.forEach((contact, i) => {
+        const num = contact.number.replace(/[^0-9]/g, "");
+        const url = `https://wa.me/${num}?text=${encodeURIComponent(message)}`;
+        setTimeout(() => window.open(url, "_blank"), i * 500);
+      });
     } else if (ctx.stone || ctx.quantity) {
-      // Quote → primary with full details
-      const message = buildWhatsAppMessage(ctx, "quote");
-      url = generateWhatsAppUrl(message);
+      // Quote → all numbers
+      message = buildWhatsAppMessage(ctx, "quote");
+      whatsappNumbers.forEach((contact, i) => {
+        const num = contact.number.replace(/[^0-9]/g, "");
+        const url = `https://wa.me/${num}?text=${encodeURIComponent(message)}`;
+        setTimeout(() => window.open(url, "_blank"), i * 500);
+      });
     } else {
-      // General → primary
-      const message = buildWhatsAppMessage(ctx, "general");
-      url = generateWhatsAppUrl(message);
+      // General → all numbers
+      message = buildWhatsAppMessage(ctx, "general");
+      whatsappNumbers.forEach((contact, i) => {
+        const num = contact.number.replace(/[^0-9]/g, "");
+        const url = `https://wa.me/${num}?text=${encodeURIComponent(message)}`;
+        setTimeout(() => window.open(url, "_blank"), i * 500);
+      });
     }
 
     // Add transfer message
     setMessages(prev => [...prev, {
       id: `bot-${Date.now()}`,
       type: "bot",
-      text: "Opening WhatsApp... 📱\nYour details have been included in the message. Our team typically responds within **30 minutes** during business hours (Mon-Sat, 9 AM - 6 PM).",
+      text: "Opening WhatsApp... 📱\nYour quote has been sent to our team (A.N. Bakshi, Jagannath & Operations). Expect a response within **30 minutes** during business hours (Mon-Sat, 9 AM - 6 PM).",
       timestamp: new Date(),
     }]);
-
-    window.open(url, "_blank");
   };
 
   return (
