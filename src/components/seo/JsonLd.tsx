@@ -347,3 +347,89 @@ export function StoneItemListJsonLd({ items }: { items: StoneListItem[] }) {
     />
   );
 }
+
+// ImageObject Schema — critical for Google Image Search ranking
+interface ImageObjectJsonLdProps {
+  name: string;
+  description: string;
+  contentUrl: string; // relative path like /stones/lavender-blue/slab-1.jpg
+  thumbnailUrl?: string;
+  caption: string;
+  keywords: string[];
+  width?: number;
+  height?: number;
+}
+
+export function ImageObjectJsonLd({ name, description, contentUrl, thumbnailUrl, caption, keywords, width, height }: ImageObjectJsonLdProps) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    name: name,
+    description: description,
+    contentUrl: `https://www.abminerals.com${contentUrl}`,
+    thumbnailUrl: `https://www.abminerals.com${thumbnailUrl || contentUrl}`,
+    caption: caption,
+    creditText: 'A B Minerals Pvt Ltd',
+    creator: {
+      '@type': 'Organization',
+      name: 'A B Minerals Pvt Ltd',
+      url: 'https://www.abminerals.com',
+    },
+    copyrightHolder: {
+      '@type': 'Organization',
+      name: 'A B Minerals Pvt Ltd',
+    },
+    copyrightNotice: '© A B Minerals Pvt Ltd',
+    acquireLicensePage: 'https://www.abminerals.com/contact',
+    keywords: keywords.join(', '),
+    representativeOfPage: true,
+    ...(width && height ? { width, height } : {}),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+// Multiple ImageObject schemas for a stone's gallery images
+interface StoneImageGalleryJsonLdProps {
+  stoneName: string;
+  stoneSlug: string;
+  images: string[];
+  imageAlt: string;
+}
+
+export function StoneImageGalleryJsonLd({ stoneName, stoneSlug, images, imageAlt }: StoneImageGalleryJsonLdProps) {
+  const isLavenderBlue = stoneSlug === 'lavender-blue';
+  const keywords = isLavenderBlue
+    ? [
+        'Lavender Blue Granite', 'Lavender Blue Granite slab', 'Lavender Blue Granite price',
+        'Lavender Blue Granite India', 'Lavender Blue Granite polished', 'Lavender Blue Granite flooring',
+        'Lavender Blue Granite countertop', 'Lavender Blue Granite supplier', 'Lavender Blue Granite quarry owner',
+        'Lavender Blue Granite Odisha', 'A B Minerals', 'blue granite India', 'granite slab India',
+        'lavendar blue granite', 'lavander blue granite', 'lavender blue granite manufacturer',
+      ]
+    : [
+        `${stoneName} Granite`, `${stoneName} Granite slab`, `${stoneName} Granite price`,
+        `${stoneName} Granite India`, `${stoneName} Granite polished`, `${stoneName} Granite supplier`,
+        'A B Minerals', 'granite slab India', 'premium granite',
+      ];
+
+  return (
+    <>
+      {images.map((img, idx) => (
+        <ImageObjectJsonLd
+          key={idx}
+          name={`${stoneName} Granite ${idx === 0 ? 'slab' : `view ${idx + 1}`} — A B Minerals`}
+          description={`${stoneName} granite ${idx === 0 ? 'polished slab' : `image ${idx + 1}`} by A B Minerals Pvt Ltd, premium granite manufacturer and quarry owner in Odisha, India.`}
+          contentUrl={img}
+          caption={imageAlt}
+          keywords={keywords}
+        />
+      ))}
+    </>
+  );
+}

@@ -89,14 +89,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: `https://www.abminerals.com/stones/${stone.slug}`,
       images: stone.images.hero ? [
         {
-          url: stone.images.hero,
+          url: `https://www.abminerals.com${stone.images.hero}`,
           width: 1200,
           height: 630,
-          alt: stone.slug === 'lavender-blue'
-            ? 'Lavender Blue granite slab — polished finish by A B Minerals quarry owner Odisha'
-            : `${stone.name} granite slab`,
+          alt: stone.imageAlt || `${stone.name} granite slab by A B Minerals`,
         },
+        // Add gallery images as additional OG images
+        ...stone.images.gallery
+          .filter((img) => img !== stone.images.hero)
+          .map((img) => ({
+            url: `https://www.abminerals.com${img}`,
+            width: 1200,
+            height: 630,
+            alt: `${stone.name} Granite — A B Minerals Pvt Ltd`,
+          })),
       ] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: stone.metaTitle || `${stone.name} Granite | A B Minerals`,
+      description: stone.metaDescription || stone.shortDescription,
+      images: stone.images.hero ? [`https://www.abminerals.com${stone.images.hero}`] : undefined,
     },
   };
 }

@@ -255,7 +255,7 @@ export const benchmarkProjects = [
     description: "Premium Lavender Blue granite flooring across terminal areas — polished finish, high-traffic rated.",
     image: "/textures/lavender-blue-hero.jpg",
     stoneUsed: ["Lavender Blue"],
-    quantity: "50,000+ sqft",
+    quantity: "2,00,000 sqft",
     images: ["/textures/lavender-blue-hero.jpg"],
   },
   {
@@ -266,7 +266,7 @@ export const benchmarkProjects = [
     description: "Lavender Blue granite flooring for the IGI Terminal 3 food court — lepatora and polished finishes.",
     image: "/textures/lavender-blue-hero.jpg",
     stoneUsed: ["Lavender Blue"],
-    quantity: "75,000+ sqft",
+    quantity: "20,000 sqft",
     images: ["/textures/lavender-blue-hero.jpg"],
   },
   {
@@ -277,7 +277,7 @@ export const benchmarkProjects = [
     description: "Lavender Blue granite flooring and platform cladding across multiple stations — flamed and polished finishes.",
     image: "/textures/lavender-blue-hero.jpg",
     stoneUsed: ["Lavender Blue"],
-    quantity: "40,000+ sqft",
+    quantity: "4,00,000 sqft",
     images: ["/textures/lavender-blue-hero.jpg"],
   },
 ];

@@ -41,13 +41,15 @@ function Lightbox({
   currentIndex, 
   onClose, 
   onNext, 
-  onPrev 
+  onPrev,
+  projectName
 }: { 
   images: string[]; 
   currentIndex: number; 
   onClose: () => void; 
   onNext: () => void; 
   onPrev: () => void;
+  projectName?: string;
 }) {
   return (
     <motion.div
@@ -97,7 +99,7 @@ function Lightbox({
       >
         <Image
           src={images[currentIndex]}
-          alt={`Project image ${currentIndex + 1}`}
+          alt={`${projectName || 'A B Minerals granite project'} — image ${currentIndex + 1}`}
           fill
           className="object-contain"
           sizes="90vw"
@@ -257,9 +259,10 @@ export function ProjectsClient() {
                     >
                       <Image
                         src={project.image}
-                        alt={project.name}
+                        alt={`${project.name} — ${project.stoneUsed.join(', ')} granite by A B Minerals`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        title={`${project.name} — A B Minerals Pvt Ltd`}
                       />
                       <div 
                         className="absolute inset-0"
@@ -296,7 +299,7 @@ export function ProjectsClient() {
                         >
                           <Image
                             src={img}
-                            alt={`${project.name} - ${idx + 2}`}
+                            alt={`${project.name} — ${project.stoneUsed.join(', ')} granite view ${idx + 2} by A B Minerals`}
                             fill
                             className="object-cover transition-transform duration-500 group-hover/thumb:scale-110"
                           />
@@ -421,10 +424,11 @@ export function ProjectsClient() {
                       {project.images && project.images.length > 0 ? (
                         <Image
                           src={project.images[0]}
-                          alt={project.name}
+                          alt={`${project.name} — ${project.stoneUsed.join(', ')} granite project by A B Minerals`}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, 50vw"
+                          title={`${project.name} — A B Minerals`}
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">

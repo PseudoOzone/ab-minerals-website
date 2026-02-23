@@ -55,11 +55,12 @@ export function HomeClient() {
         <div className="hidden sm:block absolute inset-0">
           <Image
             src="/stones/lavender-blue/slab-1.jpg"
-            alt="Lavender Blue Granite"
+            alt="Lavender Blue Granite slab polished finish — premium quality by A B Minerals quarry owner Odisha India"
             fill
             className="object-contain"
             priority
             quality={100}
+            title="Lavender Blue Granite — A B Minerals Pvt Ltd"
           />
         </div>
         
@@ -156,11 +157,12 @@ export function HomeClient() {
         <div className="sm:hidden w-full flex-1 relative min-h-[40vh]">
           <Image
             src="/stones/lavender-blue/slab-1.jpg"
-            alt="Lavender Blue Granite"
+            alt="Lavender Blue Granite slab polished — A B Minerals quarry owner direct supplier Odisha India"
             fill
             className="object-cover"
             priority
             quality={100}
+            title="Lavender Blue Granite — A B Minerals Pvt Ltd"
           />
         </div>
 
@@ -341,10 +343,11 @@ export function HomeClient() {
                       {/* Stone Image */}
                       <Image
                         src={stone.images.thumbnail}
-                        alt={stone.name}
+                        alt={stone.imageAlt || `${stone.name} Granite slab by A B Minerals`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        title={`${stone.name} Granite — A B Minerals Pvt Ltd`}
                       />
                       
                       {/* Content */}
@@ -576,10 +579,11 @@ export function HomeClient() {
                       {project.images && project.images.length > 0 ? (
                         <Image
                           src={project.images[0]}
-                          alt={project.name}
+                          alt={`${project.name} — ${project.stoneUsed.join(', ')} granite project by A B Minerals`}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, 33vw"
+                          title={`${project.name} — A B Minerals`}
                         />
                       ) : project.video ? (
                         <video
@@ -636,10 +640,11 @@ export function HomeClient() {
                       {project.images && project.images.length > 0 ? (
                         <Image
                           src={project.images[0]}
-                          alt={project.name}
+                          alt={`${project.name} — ${project.stoneUsed.join(', ')} granite project by A B Minerals`}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, 33vw"
+                          title={`${project.name} — A B Minerals`}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">

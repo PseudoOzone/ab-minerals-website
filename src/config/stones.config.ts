@@ -53,6 +53,7 @@ export interface Stone {
   // SEO
   metaTitle: string;
   metaDescription: string;
+  imageAlt: string;  // Keyword-rich alt text for Google Image Search
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -98,6 +99,7 @@ export const stones: Stone[] = [
     
     metaTitle: "Lavender Blue Granite — Lowest Price Direct from Quarry Owner | A B Minerals",
     metaDescription: "Lavender Blue granite at lowest price — direct from quarry owner A B Minerals, Odisha. Polished, honed, flamed, lepatora. 18–30mm slabs & tiles. No middlemen. Sharjah Airport & Surat Bullet Train supplier.",
+    imageAlt: "Lavender Blue Granite slab polished finish — premium quality by A B Minerals quarry owner Odisha India, ideal for flooring countertops and cladding",
   },
   {
     id: "sk-blue",
@@ -137,6 +139,7 @@ export const stones: Stone[] = [
     
     metaTitle: "Vizag/SK Blue Granite | A B Minerals Pvt Ltd",
     metaDescription: "Premium Vizag/SK Blue granite slabs from A B Minerals Pvt Ltd. Bold lavender-blue tones with dramatic patterns. Factory-finished and quality assured. Pan-India delivery.",
+    imageAlt: "Vizag SK Blue Granite slab polished finish — grey-white swirl pattern by A B Minerals factory Odisha India",
   },
   {
     id: "ikon-brown",
@@ -176,6 +179,7 @@ export const stones: Stone[] = [
     
     metaTitle: "Ikon Brown Granite | A B Minerals Pvt Ltd",
     metaDescription: "Premium Ikon Brown granite slabs from A B Minerals Pvt Ltd. Rich brown tones with linear patterns. Factory-finished and quality assured. Pan-India delivery.",
+    imageAlt: "Ikon Brown Granite slab polished finish — warm brown linear grain by A B Minerals factory Odisha India",
   },
   {
     id: "star-white",
@@ -214,6 +218,7 @@ export const stones: Stone[] = [
     
     metaTitle: "Star White Granite | A B Minerals Pvt Ltd",
     metaDescription: "Premium Star White granite slabs from A B Minerals Pvt Ltd. Unique white granite with garnet inclusions. Factory-finished and quality assured. Pan-India delivery.",
+    imageAlt: "Star White Granite slab polished finish — white grey with garnet star inclusions by A B Minerals factory Odisha India",
   },
 ];
 

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Heading, Text, SectionHeader } from "@/components/ui/Typography";
 import { stones, getStoneBySlug, Stone } from "@/config/stones.config";
 import { openChatBot } from "@/lib/chatbot-events";
-import { FAQJsonLd, lavenderBlueFAQs, ProductJsonLd } from "@/components/seo/JsonLd";
+import { FAQJsonLd, lavenderBlueFAQs, ProductJsonLd, StoneImageGalleryJsonLd } from "@/components/seo/JsonLd";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -96,6 +96,14 @@ export function StoneDetailClient({ params }: PageProps) {
         {...(stone.slug === 'lavender-blue' ? { lowPrice: 105, highPrice: 160 } : {})}
       />
 
+      {/* Image Schema for Google Image Search */}
+      <StoneImageGalleryJsonLd
+        stoneName={stone.name}
+        stoneSlug={stone.slug}
+        images={[stone.images.hero, ...stone.images.gallery.filter(img => img !== stone.images.hero)]}
+        imageAlt={stone.imageAlt}
+      />
+
       {/* ═══════════════════════════════════════════════════════════════
           HERO / PRODUCT VIEW
           ═══════════════════════════════════════════════════════════════ */}
@@ -141,10 +149,11 @@ export function StoneDetailClient({ params }: PageProps) {
                 ) : (
                   <Image
                     src={stone.images.gallery[activeImage] || stone.images.hero}
-                    alt={stone.name}
+                    alt={stone.imageAlt || `${stone.name} Granite slab by A B Minerals`}
                     fill
                     className="object-cover"
                     priority
+                    title={`${stone.name} Granite — A B Minerals Pvt Ltd`}
                   />
                 )}
                 
@@ -191,9 +200,10 @@ export function StoneDetailClient({ params }: PageProps) {
                     >
                       <Image
                         src={img}
-                        alt={`${stone.name} view ${idx + 1}`}
+                        alt={`${stone.name} Granite ${idx === 0 ? 'slab' : `view ${idx + 1}`} — A B Minerals`}
                         fill
                         className="object-cover"
+                        title={`${stone.name} Granite — A B Minerals`}
                       />
                     </button>
                   ))}

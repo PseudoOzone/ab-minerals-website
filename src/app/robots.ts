@@ -8,7 +8,14 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/', '/_next/', '/private/'],
       },
+      {
+        userAgent: 'Googlebot-Image',
+        allow: '/',
+      },
     ],
-    sitemap: 'https://www.abminerals.com/sitemap.xml',
+    sitemap: [
+      'https://www.abminerals.com/sitemap.xml',
+      'https://www.abminerals.com/image-sitemap.xml',
+    ],
   };
 }

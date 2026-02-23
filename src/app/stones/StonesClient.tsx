@@ -149,10 +149,11 @@ export function StonesClient() {
                       {/* Stone Image */}
                       <Image
                         src={stone.images.thumbnail}
-                        alt={stone.name}
+                        alt={stone.imageAlt || `${stone.name} Granite slab by A B Minerals`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        title={`${stone.name} Granite — A B Minerals Pvt Ltd`}
                       />
                       
                       {/* Stock badge */}
@@ -222,9 +223,10 @@ export function StonesClient() {
                       <div className="relative w-full md:w-64 aspect-video md:aspect-[4/3] rounded-lg overflow-hidden flex-shrink-0">
                         <Image
                           src={stone.images.thumbnail}
-                          alt={stone.name}
+                          alt={stone.imageAlt || `${stone.name} Granite slab by A B Minerals`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          title={`${stone.name} Granite — A B Minerals Pvt Ltd`}
                         />
                       </div>
                       
