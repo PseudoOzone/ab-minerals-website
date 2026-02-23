@@ -54,7 +54,7 @@ export function HomeClient() {
         {/* Lavender Blue raw photo background — hidden on mobile, shown on desktop */}
         <div className="hidden sm:block absolute inset-0">
           <Image
-            src="/stones/lavender-blue/slab-1.jpg"
+            src="/stones/lavender-blue/lavender-blue-granite-polished-slab.jpg"
             alt="Lavender Blue Granite slab polished finish — premium quality by A B Minerals quarry owner Odisha India"
             fill
             className="object-contain"
@@ -156,7 +156,7 @@ export function HomeClient() {
         {/* Lavender Blue slab image - shown below content on mobile only */}
         <div className="sm:hidden w-full flex-1 relative min-h-[40vh]">
           <Image
-            src="/stones/lavender-blue/slab-1.jpg"
+            src="/stones/lavender-blue/lavender-blue-granite-polished-slab.jpg"
             alt="Lavender Blue Granite slab polished — A B Minerals quarry owner direct supplier Odisha India"
             fill
             className="object-cover"

@@ -72,11 +72,11 @@ export const stones: Stone[] = [
     
     color: "#7B8FA0",
     images: {
-      hero: "/stones/lavender-blue/slab-1.jpg",
-      thumbnail: "/stones/lavender-blue/slab-1.jpg",
+      hero: "/stones/lavender-blue/lavender-blue-granite-polished-slab.jpg",
+      thumbnail: "/stones/lavender-blue/lavender-blue-granite-polished-slab.jpg",
       texture: "/stones/lavender-blue/slab-1.jpg",
       gallery: [
-        "/stones/lavender-blue/slab-1.jpg",
+        "/stones/lavender-blue/lavender-blue-granite-polished-slab.jpg",
       ],
     },
     textures: {
@@ -113,11 +113,11 @@ export const stones: Stone[] = [
     
     color: "#9EAAB8",
     images: {
-      hero: "/stones/sk-blue/slab-1.png",
-      thumbnail: "/stones/sk-blue/slab-1.png",
+      hero: "/stones/sk-blue/vizag-sk-blue-granite-polished-slab.png",
+      thumbnail: "/stones/sk-blue/vizag-sk-blue-granite-polished-slab.png",
       texture: "/stones/sk-blue/slab-1.png",
       gallery: [
-        "/stones/sk-blue/slab-1.png",
+        "/stones/sk-blue/vizag-sk-blue-granite-polished-slab.png",
       ],
     },
     textures: {
@@ -153,11 +153,11 @@ export const stones: Stone[] = [
     
     color: "#5C4A3D",
     images: {
-      hero: "/stones/ikon-brown/slab-1.jpg",
-      thumbnail: "/stones/ikon-brown/slab-1.jpg",
+      hero: "/stones/ikon-brown/ikon-brown-granite-polished-slab.jpg",
+      thumbnail: "/stones/ikon-brown/ikon-brown-granite-polished-slab.jpg",
       texture: "/stones/ikon-brown/slab-1.jpg",
       gallery: [
-        "/stones/ikon-brown/slab-1.jpg",
+        "/stones/ikon-brown/ikon-brown-granite-polished-slab.jpg",
       ],
     },
     textures: {
@@ -192,11 +192,11 @@ export const stones: Stone[] = [
     
     color: "#D8D8D8",
     images: {
-      hero: "/stones/star-white/slab-1.jpg",
-      thumbnail: "/stones/star-white/slab-1.jpg",
+      hero: "/stones/star-white/star-white-granite-polished-slab.jpg",
+      thumbnail: "/stones/star-white/star-white-granite-polished-slab.jpg",
       texture: "/stones/star-white/slab-1.jpg",
       gallery: [
-        "/stones/star-white/slab-1.jpg",
+        "/stones/star-white/star-white-granite-polished-slab.jpg",
       ],
     },
     textures: {

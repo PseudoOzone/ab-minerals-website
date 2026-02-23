@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice - A B Minerals Pvt Ltd | Anshuman Bakshi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      padding: 40px 20px;
+    }
+
+    .invoice-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    /* Header */
+    .invoice-header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      padding: 36px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .invoice-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .invoice-header .invoice-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #a0aec0;
+      margin-bottom: 4px;
+    }
+
+    .invoice-meta {
+      text-align: right;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .invoice-meta strong {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    .invoice-number {
+      font-size: 18px;
+      font-weight: 700;
+      color: #63b3ed;
+    }
+
+    /* Body */
+    .invoice-body {
+      padding: 36px 40px;
+    }
+
+    /* Parties */
+    .parties {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .party {
+      flex: 1;
+    }
+
+    .party-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #718096;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .party-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .party-details {
+      font-size: 13px;
+      color: #4a5568;
+      line-height: 1.7;
+    }
+
+    /* Table */
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 28px;
+    }
+
+    .items-table thead th {
+      background: #f7fafc;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #718096;
+      font-weight: 600;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .items-table thead th:last-child,
+    .items-table thead th:nth-child(4) {
+      text-align: right;
+    }
+
+    .items-table tbody td {
+      padding: 16px;
+      font-size: 14px;
+      color: #2d3748;
+      border-bottom: 1px solid #edf2f7;
+      vertical-align: top;
+    }
+
+    .items-table tbody td:last-child,
+    .items-table tbody td:nth-child(4) {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .item-name {
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    .item-desc {
+      font-size: 12px;
+      color: #718096;
+      margin-top: 3px;
+    }
+
+    .hsn-code {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a5568;
+      background: #edf2f7;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Totals */
+    .totals-section {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 32px;
+    }
+
+    .totals-table {
+      width: 320px;
+      border-collapse: collapse;
+    }
+
+    .totals-table tr td {
+      padding: 8px 16px;
+      font-size: 14px;
+      color: #4a5568;
+    }
+
+    .totals-table tr td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 500;
+    }
+
+    .totals-table .subtotal-row td {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 12px;
+    }
+
+    .totals-table .tax-row td {
+      padding-top: 12px;
+      font-size: 13px;
+      color: #718096;
+    }
+
+    .totals-table .total-row td {
+      border-top: 2px solid #1a1a2e;
+      padding-top: 14px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .amount-words {
+      background: #f7fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin-bottom: 32px;
+    }
+
+    .amount-words-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #718096;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .amount-words-text {
+      font-size: 14px;
+      color: #2d3748;
+      font-weight: 600;
+    }
+
+    /* Payment & Notes */
+    .payment-notes {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .payment-info, .notes {
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #718096;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .payment-info p, .notes p {
+      font-size: 13px;
+      color: #4a5568;
+      line-height: 1.8;
+    }
+
+    .payment-info strong {
+      color: #2d3748;
+    }
+
+    /* Footer */
+    .invoice-footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .signature-area {
+      text-align: right;
+    }
+
+    .signature-line {
+      width: 200px;
+      border-bottom: 1px solid #a0aec0;
+      margin-bottom: 6px;
+      margin-left: auto;
+      padding-top: 50px;
+    }
+
+    .signature-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    .signature-role {
+      font-size: 12px;
+      color: #718096;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: #a0aec0;
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .invoice-container { box-shadow: none; border-radius: 0; }
+      .no-print { display: none !important; }
+    }
+
+    .print-btn {
+      display: block;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 12px 32px;
+      background: #1a1a2e;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .print-btn:hover {
+      background: #16213e;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-pending {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-paid {
+      background: #d1fae5;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invoice-container">
+    <!-- Header -->
+    <div class="invoice-header">
+      <div>
+        <div class="invoice-label">Invoice</div>
+        <h1>ANSHUMAN BAKSHI</h1>
+        <p style="color: #a0aec0; font-size: 13px; margin-top: 4px;">Freelance Web Developer</p>
+      </div>
+      <div class="invoice-meta">
+        <div class="invoice-number">INV-ABM-2026-001</div>
+        <div style="margin-top: 8px;">
+          <strong>Date:</strong> February 12, 2026<br>
+          <strong>Due Date:</strong> February 28, 2026<br>
+          <strong>Status:</strong> <span class="badge badge-pending">Pending</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="invoice-body">
+      <!-- Parties -->
+      <div class="parties">
+        <div class="party">
+          <div class="party-label">From</div>
+          <div class="party-name">Anshuman Bakshi</div>
+          <div class="party-details">
+            Freelance Web Developer<br>
+            Email: <span style="color:#1a1a2e;">bakshianshuman117@gmail.com</span><br>
+            Phone: +91 84488 00716<br>
+            PAN: GJOPB8235F<br>
+            GSTIN: <em style="color:#a0aec0;">N/A (Below threshold)</em>
+          </div>
+        </div>
+        <div class="party">
+          <div class="party-label">Bill To</div>
+          <div class="party-name">A B Minerals Pvt Ltd</div>
+          <div class="party-details">
+            Gajapati Nagar, 8th Lane<br>
+            Berhampur, Ganjam<br>
+            Odisha – 760010, India<br>
+            Phone: +91 98118 08716<br>
+            Email: office@abminerals.com
+          </div>
+        </div>
+      </div>
+
+      <!-- Subject -->
+      <div style="margin-bottom: 24px;">
+        <div class="section-title">Subject</div>
+        <p style="font-size: 15px; color: #2d3748; font-weight: 500;">
+          Website Design, Development & Annual Maintenance — <strong>www.abminerals.com</strong>
+        </p>
+      </div>
+
+      <!-- Items Table -->
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th style="width:8%;">#</th>
+            <th style="width:40%;">Description</th>
+            <th style="width:16%;">SAC/HSN Code</th>
+            <th style="width:12%;">Qty</th>
+            <th style="width:24%;">Amount (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              <div class="item-name">Website Design & Development</div>
+              <div class="item-desc">
+                Complete website for A B Minerals Pvt Ltd — includes UI/UX design, 
+                Next.js development, responsive pages (Home, About, Stones, Quarry, Factory, 
+                Projects, Capabilities, Contact), SEO optimization, chatbot integration, 
+                WhatsApp button, and deployment setup.
+              </div>
+            </td>
+            <td><span class="hsn-code">998314</span></td>
+            <td style="text-align:right;">1</td>
+            <td>₹50,000.00</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <div class="item-name">Annual Website Maintenance (2026–27)</div>
+              <div class="item-desc">
+                Hosting management, bug fixes, content updates, performance monitoring, 
+                security patches, SSL renewal, uptime management, and technical support 
+                for 12 months (Feb 2026 – Feb 2027).
+              </div>
+            </td>
+            <td><span class="hsn-code">998316</span></td>
+            <td style="text-align:right;">1 yr</td>
+            <td>₹12,000.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Totals -->
+      <div class="totals-section">
+        <table class="totals-table">
+          <tr class="subtotal-row">
+            <td>Subtotal</td>
+            <td>₹62,000.00</td>
+          </tr>
+          <tr class="tax-row">
+            <td>CGST @ 9%</td>
+            <td>₹5,580.00</td>
+          </tr>
+          <tr class="tax-row">
+            <td>SGST @ 9%</td>
+            <td>₹5,580.00</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total</td>
+            <td>₹73,160.00</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Amount in Words -->
+      <div class="amount-words">
+        <div class="amount-words-label">Amount in Words</div>
+        <div class="amount-words-text">Rupees Seventy-Three Thousand One Hundred and Sixty Only</div>
+      </div>
+
+      <!-- SAC Code Reference -->
+      <div style="background:#f7fafc; border-radius:8px; padding:14px 20px; margin-bottom:28px; border:1px solid #e2e8f0;">
+        <div class="section-title" style="margin-bottom:8px;">SAC Code Reference (GST)</div>
+        <table style="width:100%; font-size:12px; color:#4a5568;">
+          <tr>
+            <td style="padding:4px 0;"><span class="hsn-code">998314</span></td>
+            <td style="padding:4px 0;">Website hosting, design & development services</td>
+            <td style="padding:4px 0; text-align:right; color:#718096;">GST @ 18%</td>
+          </tr>
+          <tr>
+            <td style="padding:4px 0;"><span class="hsn-code">998316</span></td>
+            <td style="padding:4px 0;">IT infrastructure & network management services</td>
+            <td style="padding:4px 0; text-align:right; color:#718096;">GST @ 18%</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Payment & Notes -->
+      <div class="payment-notes">
+        <div class="payment-info">
+          <div class="section-title">Payment Details</div>
+          <p>
+            <strong>Account Name:</strong> ANSHUMAN BAKSHI<br>
+            <strong>Bank:</strong> AXIS Bank<br>
+            <strong>A/C No:</strong> 922010036626548<br>
+            <strong>IFSC:</strong> UTIB0000131<br>
+            <strong>UPI:</strong> 8448800716@ptaxis
+          </p>
+        </div>
+        <div class="notes">
+          <div class="section-title">Terms & Conditions</div>
+          <p>
+            1. Payment due within 15 days of invoice date.<br>
+            2. Annual maintenance is non-refundable once the term begins.<br>
+            3. Maintenance covers standard updates; major redesigns will be quoted separately.<br>
+            4. Late payments attract 1.5% interest per month.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="invoice-footer">
+      <div class="footer-note">
+        This is a computer-generated invoice.<br>
+        For queries, contact bakshianshuman117@gmail.com
+      </div>
+      <div class="signature-area">
+        <div class="signature-line"></div>
+        <div class="signature-name">Anshuman Bakshi</div>
+        <div class="signature-role">Freelance Web Developer</div>
+      </div>
+    </div>
+  </div>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+</body>
+</html>
