@@ -72,12 +72,12 @@ export function Header() {
         }}
       >
         <Container>
-          <nav className="flex items-center justify-between">
+          <nav className="flex items-center justify-between gap-6">
             {/* Logo */}
             <Logo size="lg" variant="full" />
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-6">
               {siteConfig.navigation.main.map((item) => (
                 <Link
                   key={item.href}
