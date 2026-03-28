@@ -38,7 +38,7 @@ export function OrganizationJsonLd() {
         telephone: contactInfo.phone.primary,
         contactType: 'sales',
         areaServed: ['IN', 'AE', 'US', 'GB', 'AU'],
-        availableLanguage: ['English', 'Hindi'],
+        availableLanguage: ['English', 'Hindi', 'German', 'Chinese', 'Arabic'],
       },
     ],
     email: contactInfo.email.primary,

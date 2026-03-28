@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { MapPin, Phone, Mail, Instagram, Linkedin, Youtube } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Logo } from "@/components/ui/Logo";
@@ -20,7 +21,8 @@ const COLORS = {
 // FOOTER COMPONENT
 // ═══════════════════════════════════════════════════════════════════════
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations('footer');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -86,7 +88,7 @@ export function Footer() {
 
           {/* Stones Column */}
           <div>
-            <h4 className="font-serif text-lg mb-6" style={{ color: COLORS.cream }}>Our Stones</h4>
+            <h4 className="font-serif text-lg mb-6" style={{ color: COLORS.cream }}>{t('ourStones')}</h4>
             <ul className="space-y-3">
               {siteConfig.navigation.footer.stones.map((item) => (
                 <li key={item.name}>
@@ -104,16 +106,22 @@ export function Footer() {
 
           {/* Company Column */}
           <div>
-            <h4 className="font-serif text-lg mb-6" style={{ color: COLORS.cream }}>Company</h4>
+            <h4 className="font-serif text-lg mb-6" style={{ color: COLORS.cream }}>{t('company')}</h4>
             <ul className="space-y-3">
-              {siteConfig.navigation.footer.company.map((item) => (
-                <li key={item.name}>
+              {[
+                { key: 'aboutUs', href: '/about' },
+                { key: 'ourQuarry', href: '/quarry' },
+                { key: 'ourFactory', href: '/factory' },
+                { key: 'projects', href: '/projects' },
+                { key: 'contactTitle', href: '/contact' },
+              ].map((item) => (
+                <li key={item.key}>
                   <Link
                     href={item.href}
                     className="transition-colors text-sm hover:opacity-80"
                     style={{ color: COLORS.creamMuted }}
                   >
-                    {item.name}
+                    {t(item.key)}
                   </Link>
                 </li>
               ))}
@@ -122,7 +130,7 @@ export function Footer() {
 
           {/* Contact Column */}
           <div>
-            <h4 className="font-serif text-lg mb-6" style={{ color: COLORS.cream }}>Contact</h4>
+            <h4 className="font-serif text-lg mb-6" style={{ color: COLORS.cream }}>{t('contactTitle')}</h4>
             <ul className="space-y-4">
               <li>
                 <a
@@ -166,18 +174,21 @@ export function Footer() {
         <Container className="py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs" style={{ color: COLORS.creamMuted }}>
-              © {currentYear} {companyInfo.name}. All rights reserved.
+              {t('allRightsReserved', { year: currentYear, company: companyInfo.name })}
             </p>
             
             <div className="flex gap-6">
-              {siteConfig.navigation.footer.legal.map((item) => (
+              {[
+                { key: 'privacyPolicy', href: '/privacy' },
+                { key: 'termsOfService', href: '/terms' },
+              ].map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.key}
                   href={item.href}
                   className="transition-colors text-xs hover:opacity-80"
                   style={{ color: COLORS.creamMuted }}
                 >
-                  {item.name}
+                  {t(item.key)}
                 </Link>
               ))}
             </div>

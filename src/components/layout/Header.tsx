@@ -1,13 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { siteConfig } from "@/config/site.config";
 import { contactInfo } from "@/config/company.config";
 
@@ -16,6 +18,8 @@ import { contactInfo } from "@/config/company.config";
 // ═══════════════════════════════════════════════════════════════════════
 
 export function Header() {
+  const t = useTranslations('nav');
+  const tc = useTranslations('common');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -76,14 +80,14 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-8">
               {siteConfig.navigation.main.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   className="font-sans text-sm uppercase tracking-wider transition-colors duration-300"
                   style={{ color: 'rgba(245, 245, 240, 0.8)' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#C9A962'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(245, 245, 240, 0.8)'}
                 >
-                  {item.name}
+                  {t(item.href.slice(1))}
                 </Link>
               ))}
             </div>
@@ -99,15 +103,16 @@ export function Header() {
                 <span className="font-sans text-sm">{contactInfo.phone.display}</span>
               </a>
               <Button variant="outline" size="sm">
-                Request Quote
+                {tc('requestQuote')}
               </Button>
+              <LanguageSwitcher />
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-cream hover:text-gold transition-colors"
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMobileMenuOpen ? t('closeMenu') : t('openMenu')}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -148,7 +153,7 @@ export function Header() {
             >
               {siteConfig.navigation.main.map((item, index) => (
                 <motion.div
-                  key={item.name}
+                  key={item.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
@@ -158,7 +163,7 @@ export function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="font-serif text-3xl text-cream hover:text-gold transition-colors"
                   >
-                    {item.name}
+                    {t(item.href.slice(1))}
                   </Link>
                 </motion.div>
               ))}
@@ -181,8 +186,11 @@ export function Header() {
                   size="lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Request Quote
+                  {tc('requestQuote')}
                 </Button>
+                <div className="mt-2">
+                  <LanguageSwitcher />
+                </div>
               </motion.div>
             </motion.nav>
           </motion.div>
