@@ -48,6 +48,9 @@ const ogLocaleMap: Record<Locale, string> = {
   'zh-CN': 'zh_CN',
   'zh-TW': 'zh_TW',
   ar: 'ar_AE',
+  or: 'or_IN',
+  ml: 'ml_IN',
+  ta: 'ta_IN',
 };
 
 // ═══════════════════════════════════════════════════════════════════════
