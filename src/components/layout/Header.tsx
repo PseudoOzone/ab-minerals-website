@@ -143,13 +143,16 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
+            {/* Prevent backdrop clicks when interacting with menu content */}
+
             {/* Menu Content */}
             <motion.nav
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="relative h-full flex flex-col items-center justify-center gap-8 p-8"
+              className="relative h-full overflow-y-auto overscroll-contain flex flex-col items-center gap-8 px-8 pt-24 pb-12"
+              onClick={(e) => e.stopPropagation()}
             >
               {siteConfig.navigation.main.map((item, index) => (
                 <motion.div
@@ -189,7 +192,7 @@ export function Header() {
                   {tc('requestQuote')}
                 </Button>
                 <div className="mt-2">
-                  <LanguageSwitcher />
+                  <LanguageSwitcher dropUp />
                 </div>
               </motion.div>
             </motion.nav>

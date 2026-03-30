@@ -6,7 +6,7 @@ import { locales, localeNames, localeShortNames, type Locale } from "@/i18n/conf
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Globe, ChevronDown } from "lucide-react";
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ dropUp = false }: { dropUp?: boolean }) {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const router = useRouter();
@@ -63,7 +63,7 @@ export function LanguageSwitcher() {
 
       {open && (
         <div
-          className="absolute right-0 top-full mt-2 rounded-xl overflow-hidden shadow-2xl z-50 min-w-[180px]"
+          className={`absolute right-0 rounded-xl overflow-hidden shadow-2xl z-50 min-w-[180px] ${dropUp ? 'bottom-full mb-2' : 'top-full mt-2'}`}
           style={{
             backgroundColor: '#141414',
             border: '1px solid rgba(201, 169, 98, 0.15)',
