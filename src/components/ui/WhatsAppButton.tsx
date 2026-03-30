@@ -82,7 +82,7 @@ Please assist me with my order.`,
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-24 right-6 z-50">
           {/* Popup */}
           <AnimatePresence>
             {isOpen && (
@@ -91,7 +91,7 @@ Please assist me with my order.`,
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 20, scale: 0.9 }}
                 transition={{ duration: 0.2 }}
-                className="absolute bottom-20 right-0 w-80 rounded-2xl overflow-hidden shadow-2xl"
+                className="absolute bottom-20 right-0 w-80 max-w-[calc(100vw-2rem)] rounded-2xl overflow-hidden shadow-2xl"
                 style={{ 
                   backgroundColor: '#141414',
                   border: '1px solid rgba(201, 169, 98, 0.2)'

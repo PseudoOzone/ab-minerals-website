@@ -206,7 +206,7 @@ export function QuarryClient() {
       {/* Stats Section */}
       <section className="py-20" style={{ backgroundColor: '#0D0D0D' }}>
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -494,8 +494,8 @@ export function QuarryClient() {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3800!2d84.7271239!3d19.3424339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDIwJzMyLjgiTiA4NMKwNDMnMzcuNiJF!5e1!3m2!1sen!2sin!4v1707100000000!5m2!1sen!2sin"
               width="100%"
-              height="450"
-              style={{ border: 0 }}
+              height="300"
+              style={{ border: 0, minHeight: 'min(450px, 60vh)' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

@@ -164,7 +164,7 @@ export function StoneDetailClient({ params }: PageProps) {
                 <div className="absolute top-4 right-4 flex gap-2">
                   <button
                     onClick={() => setShow3D(true)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                       show3D ? 'opacity-100' : 'opacity-60 hover:opacity-80'
                     }`}
                     style={{ 
@@ -176,7 +176,7 @@ export function StoneDetailClient({ params }: PageProps) {
                   </button>
                   <button
                     onClick={() => setShow3D(false)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                       !show3D ? 'opacity-100' : 'opacity-60 hover:opacity-80'
                     }`}
                     style={{ 
@@ -265,7 +265,7 @@ export function StoneDetailClient({ params }: PageProps) {
                 <h3 className="font-serif text-lg mb-4" style={{ color: '#F5F5F0' }}>
                   {t('specifications')}
                 </h3>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <span className="text-xs uppercase tracking-wider" style={{ color: '#A0A0A0' }}>
                       {t('origin')}
@@ -302,7 +302,7 @@ export function StoneDetailClient({ params }: PageProps) {
                   {stone.applications.map((app) => (
                     <span
                       key={app}
-                      className="px-3 py-1.5 rounded-full text-sm"
+                      className="px-4 py-2 rounded-full text-sm"
                       style={{ 
                         backgroundColor: 'rgba(201, 169, 98, 0.1)',
                         color: '#C9A962',

@@ -425,8 +425,8 @@ export function FactoryClient() {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800!2d84.7271239!3d19.3424339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d57001d29c99d%3A0x17e8898dab6d2652!2sChamakhandi%2C%20Sriramachandrapur%2C%20Odisha%20761045!5e1!3m2!1sen!2sin!4v1707100000000!5m2!1sen!2sin"
                 width="100%"
-                height="450"
-                style={{ border: 0 }}
+                height="300"
+                style={{ border: 0, minHeight: 'min(450px, 60vh)' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

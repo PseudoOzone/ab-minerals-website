@@ -248,7 +248,7 @@ export function ContactClient() {
                   src={contactInfo.maps.embedUrl}
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: '500px' }}
+                  style={{ border: 0, minHeight: 'min(500px, 60vh)' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

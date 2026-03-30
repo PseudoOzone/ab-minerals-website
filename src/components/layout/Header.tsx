@@ -111,7 +111,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-cream hover:text-gold transition-colors"
+              className="lg:hidden relative z-[60] p-2 text-cream hover:text-gold transition-colors"
               aria-label={isMobileMenuOpen ? t('closeMenu') : t('openMenu')}
             >
               {isMobileMenuOpen ? (
@@ -132,7 +132,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-50 lg:hidden"
           >
             {/* Backdrop */}
             <motion.div
