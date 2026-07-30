@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lavender": "node scripts/lavender-agent.mjs",
+    "lavender:once": "node scripts/lavender-agent.mjs --once",
+    "lavender:audit": "node scripts/lavender-agent.mjs --audit",
+    "lavender:reset": "node scripts/lavender-agent.mjs --reset",
+    "lavender:gmb-setup": "node scripts/setup-gmb.mjs",
+    "lavender:gmb-test": "node scripts/setup-gmb.mjs --test-post",
+    "lavender:gmb-accounts": "node scripts/setup-gmb.mjs --show-accounts"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

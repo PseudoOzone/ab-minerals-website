@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ═══════════════════════════════════════════════════════════════════════
  * STONES CONFIGURATION
  * ═══════════════════════════════════════════════════════════════════════
@@ -66,9 +66,9 @@ export const stones: Stone[] = [
     slug: "lavender-blue",
     name: "Lavender Blue",
     
-    tagline: "India's Finest Lavender Blue — Direct from Quarry Owner",
+    tagline: "Lavender Blue Granite: India’s Lowest Price – Berhampur Quarry Owner",
     description: "Lavender Blue granite features a mesmerizing blend of lavender-grey tones with flowing wave patterns. Quarried from our own 100-acre reserve in Berhampur, Odisha, this is our signature stone — the only granite we extract ourselves. Lowest price guaranteed — direct from quarry owner, no middlemen. Used in landmark projects including Sharjah International Airport, Surat Bullet Train Station, SCB Medical College Cuttack, Old Bangalore Airport, and Pune Metro. Available in gang saw slabs (300×150 cm+), block cutter sizes (60–120 cm height), and precision tiles (30×30, 45×45, 30×60, 60×60, 90×90, 90×120 cm) — processed at our own factory in Chamakhandi, Odisha. As quarry owners and manufacturers, we offer the best Lavender Blue granite price in India with direct supply, no middlemen.",
-    shortDescription: "Premium Lavender Blue granite at lowest price — quarry owner, factory-finished, pan-India delivery",
+    shortDescription: "Lavender Blue granite: Quarry owner in Berhampur Odisha, factory direct slabs & tiles. Lowest price. Sharjah Airport projects. India supplier.",
     
     color: "#7B8FA0",
     images: {
@@ -97,9 +97,9 @@ export const stones: Stone[] = [
     inStock: true,
     fromOwnQuarry: true, // Our exclusive quarry in Odisha
     
-    metaTitle: "Lavender Blue Granite — Lowest Price Direct from Quarry Owner | A B Minerals",
-    metaDescription: "Lavender Blue granite at lowest price — direct from quarry owner A B Minerals, Odisha. Polished, honed, flamed, lepatora. 18–30mm slabs & tiles. No middlemen. Sharjah Airport & Surat Bullet Train supplier.",
-    imageAlt: "Lavender Blue Granite slab polished finish — premium quality by A B Minerals quarry owner Odisha India, ideal for flooring countertops and cladding",
+    metaTitle: "Lavender Blue Granite: Price, Supplier & Quarry Owner (Berhampur) AB Minerals",
+    metaDescription: "Lavender Blue Granite: The only direct quarry owner of stunning Lavender Blue granite from Berhampur, Odisha, India. A B Minerals – 100-acre quarry supplying Sharjah Airport & Surat Bullet Train projects. Lowest price guaranteed! Polished slabs, honed tiles, custom sizes. India’s premier Blue Lavender granite supplier.",
+    imageAlt: "Lavender Blue Granite Slab: Premium Polished Stone – Berhampur Odisha Quarry Owner, India. Direct from A B Minerals. Sharjah Airport Supplier.",
   },
   {
     id: "sk-blue",
@@ -137,7 +137,7 @@ export const stones: Stone[] = [
     priceCategory: "Premium",
     inStock: true,
     
-    metaTitle: "Vizag/SK Blue Granite | A B Minerals Pvt Ltd",
+    metaTitle: "Vizag SK Blue Granite: Price, Supplier & Factory Direct | A B Minerals Odisha",
     metaDescription: "Premium Vizag/SK Blue granite slabs from A B Minerals Pvt Ltd. Bold lavender-blue tones with dramatic patterns. Factory-finished and quality assured. Pan-India delivery.",
     imageAlt: "Vizag SK Blue Granite slab polished finish — grey-white swirl pattern by A B Minerals factory Odisha India",
   },
@@ -216,7 +216,7 @@ export const stones: Stone[] = [
     priceCategory: "Premium",
     inStock: true,
     
-    metaTitle: "Star White Granite | A B Minerals Pvt Ltd",
+    metaTitle: "Star White Granite: Price, Supplier & Factory Direct | A B Minerals Odisha",
     metaDescription: "Premium Star White granite slabs from A B Minerals Pvt Ltd. Unique white granite with garnet inclusions. Factory-finished and quality assured. Pan-India delivery.",
     imageAlt: "Star White Granite slab polished finish — white grey with garnet star inclusions by A B Minerals factory Odisha India",
   },
